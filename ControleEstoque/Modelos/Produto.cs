@@ -8,6 +8,8 @@ namespace Modelos
 {
     public class Produto
     {
+        // PROPRIEDADES
+
         public int ProdutoId { get; set; }
 
         public string Nome { get; set; }
@@ -19,6 +21,8 @@ namespace Modelos
         public decimal ValorVenda { get; set; }
 
         public float SaldoAtual { get; set; }
+
+        // RELACIONAMENTO
 
     }
 }
