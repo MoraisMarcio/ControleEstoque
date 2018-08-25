@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Compra.cs" />
     <Compile Include="Estoque.cs" />
     <Compile Include="ItemProduto.cs" />
     <Compile Include="Produto.cs" />
