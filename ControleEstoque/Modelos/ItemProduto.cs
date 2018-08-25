@@ -9,14 +9,13 @@ namespace Modelos
     public class ItemProduto
     {
         // PROPRIEDADES
-
+        public int ItemProdutoId { get; set; }
         public decimal Preco { get; set; }
         public float Quantidade { get; set; }
 
         // Chave Estrangeira
         public int ProdutoId { get; set; }
-        public int CompraId { get; set; }
-
+        
         // RELACIONAMENTO
 
     }

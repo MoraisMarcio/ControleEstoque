@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    public class Compra
+    public class Venda
     {
-        // PROPRIEDADES       
+        // PROPRIEDADES
         public DateTime Data { get; set; }
 
         // Chave Estrangeira
         public int ItemProdutoId { get; set; }
-        public int FornecedorId { get; set; }
+        public int ClienteId { get; set; }
 
         // RELACIONAMENTO
     }
