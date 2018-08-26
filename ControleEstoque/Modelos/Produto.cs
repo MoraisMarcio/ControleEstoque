@@ -26,7 +26,7 @@ namespace Modelos
         public decimal Produto_PrecoVenda { get; set; }
 
         [Required]
-        public float Produto_SaldoAtual { get; set; }
+        public float Produto_EmEstoque { get; set; }
 
         // RELACIONAMENTO
 
