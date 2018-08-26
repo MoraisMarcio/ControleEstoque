@@ -12,6 +12,7 @@ namespace Modelos
         // PROPRIEDADES
         [Key]
         public int FornecedorId { get; set; }
+
         [Required]
         public string Fornecedor_Nome { get; set; }
 

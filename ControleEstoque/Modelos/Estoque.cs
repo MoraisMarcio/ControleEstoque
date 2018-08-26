@@ -12,6 +12,8 @@ namespace Modelos
         // PROPRIEDADES
         [Key]
         public int EstoqueId { get; set; }
+
+        [Required]
         public string Estoque_Nome { get; set; }
 
         // Chave Estrangeira

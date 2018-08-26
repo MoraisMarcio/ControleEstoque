@@ -12,11 +12,21 @@ namespace Modelos
         // PROPRIEDADES
         [Key]
         public int ProdutoId { get; set; }
-        public string Nome { get; set; }
-        public string Unidade { get; set; }
-        public decimal ValorReferencia { get; set; }
-        public decimal ValorVenda { get; set; }
-        public float SaldoAtual { get; set; }
+
+        [Required]
+        public string Produto_Nome { get; set; }
+
+        [Required]
+        public string Produto_Unidade { get; set; }
+
+        [Required]
+        public decimal Produto_ValorReferencia { get; set; }
+
+        [Required]
+        public decimal Produto_ValorVenda { get; set; }
+
+        [Required]
+        public float Produto_SaldoAtual { get; set; }
 
         // RELACIONAMENTO
 
