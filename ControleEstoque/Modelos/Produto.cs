@@ -20,10 +20,10 @@ namespace Modelos
         public string Produto_Unidade { get; set; }
 
         [Required]
-        public decimal Produto_ValorReferencia { get; set; }
+        public decimal Produto_PrecoCusto { get; set; }
 
         [Required]
-        public decimal Produto_ValorVenda { get; set; }
+        public decimal Produto_PrecoVenda { get; set; }
 
         [Required]
         public float Produto_SaldoAtual { get; set; }
