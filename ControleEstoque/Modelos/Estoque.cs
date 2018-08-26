@@ -12,7 +12,7 @@ namespace Modelos
         // PROPRIEDADES
         [Key]
         public int EstoqueId { get; set; }
-        public string Nome { get; set; }
+        public string Estoque_Nome { get; set; }
 
         // Chave Estrangeira
         public int ProdutoId { get; set; }

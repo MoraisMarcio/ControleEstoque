@@ -10,7 +10,8 @@ namespace Modelos
     public class Venda
     {
         // PROPRIEDADES
-        public DateTime Data { get; set; }
+        [Required]
+        public DateTime Venda_Data { get; set; }
 
         // Chave Estrangeira
         public int ItemProdutoId { get; set; }

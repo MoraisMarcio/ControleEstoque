@@ -9,8 +9,9 @@ namespace Modelos
 {
     public class Compra
     {
-        // PROPRIEDADES       
-        public DateTime Data { get; set; }
+        // PROPRIEDADES
+        [Required]
+        public DateTime Compra_Data { get; set; }
 
         // Chave Estrangeira
         public int ItemProdutoId { get; set; }
