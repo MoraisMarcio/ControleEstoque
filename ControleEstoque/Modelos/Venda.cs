@@ -12,6 +12,7 @@ namespace Modelos
         // PROPRIEDADES
         [Required]
         public DateTime Data { get; set; }
+        public decimal PrecoTotal { get; set; }
 
         // Chave Estrangeira
         public int ItemProdutoId { get; set; }

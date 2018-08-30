@@ -14,7 +14,7 @@ namespace Modelos
         public int ProdutoId { get; set; }
 
         [Required]
-        public string Nome { get; set; }
+        public string Descricao { get; set; }
 
         [Required]
         public string Unidade { get; set; }
@@ -27,6 +27,9 @@ namespace Modelos
 
         [Required]
         public float EmEstoque { get; set; }
+
+        // Chave Estrangeira
+        public int EstoqueId { get; set; }
 
         // RELACIONAMENTO
 

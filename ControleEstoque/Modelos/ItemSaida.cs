@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    public class ItemProduto
+    public class ItemSaida
     {
         // PROPRIEDADES
-        public int ItemProdutoId { get; set; }
+        public int ItemSaidaId { get; set; }
 
         [Required]
-        public decimal Preco { get; set; }
+        public decimal PrecoUnitario { get; set; }
 
         [Required]
         public float Quantidade { get; set; }

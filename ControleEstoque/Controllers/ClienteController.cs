@@ -12,7 +12,7 @@ namespace Controllers
     {
         void Insert(Cliente c)
         {
-           // StringContexto contexto = new StringContexto();
+            //  baseDeDados contexto = new baseDeDados();
         }
     }
 }

@@ -33,5 +33,7 @@ namespace Modelos
         public string Cidade { get; set; }
 
         // RELACIONAMENTO
+        public virtual ICollection<Venda> _Vendas { get; set; }
     }
+}
 }
