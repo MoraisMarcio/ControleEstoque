@@ -1,64 +1,61 @@
-﻿using Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Controllers
 {
-    class ClienteController
+    class ProdutoController
     {
-        //void Inserir(Cliente c)
+        //void Inserir(Produto p)
         //{
         //    baseDeDados contexto = new baseDeDados();
-        //    contexto.Cliente.Add(c);
+        //    contexto.Produto.Add(p);
         //    contexto.SaveChanges();
         //}
 
-        //List<Cliente> ListarTodosClientes()
+        //List<Produto> ListarTodosProdutos()
         //{
         //    baseDeDados contexto = new baseDeDados();
-        //    return contexto.Cliente.ToList();
+        //    return contexto.Produto.ToList();
         //}
 
-        //Cliente BuscarPorId(int id)
+        //Produto BuscarPorId(int id)
         //{
         //    baseDeDados contexto = new baseDeDados();
-        //    return contexto.Cliente.Find(id);
+        //    return contexto.Produto.Find(id);
         //}
 
         //void Excluir(int id)
         //{
-        //    Cliente thisExcluir = BuscarPorId(id);
+        //    Produto thisExcluir = BuscarPorId(id);
 
         //    if (thisExcluir != null)
         //    {
         //        baseDeDados contexto = new baseDeDados();
-        //        contexto.Cliente.Remove(thisExcluir);
+        //        contexto.Produto.Remove(thisExcluir);
         //        contexto.SaveChanges();
         //    }
         //}
 
-        //void Editar(int id, Cliente dadosNovos)
+        //void Editar(int id, Produto dadosNovos)
         //{
-        //    Cliente dadosAntigos = BuscarPorId(id);
+        //    Produto dadosAntigos = BuscarPorId(id);
         //    if (dadosAntigos != null)
         //    {
-        //        dadosAntigos.Nome = dadosNovos.Nome;
-        //        dadosAntigos.Telefone = dadosNovos.Telefone;
-        //        dadosAntigos.Bairro = dadosNovos.Bairro;
-        //        dadosAntigos.Endereco = dadosNovos.Endereco;
-        //        dadosAntigos.NumResidencial = dadosNovos.NumResidencial;
-        //        dadosAntigos.Cidade = dadosNovos.Cidade;
+        //        dadosAntigos.Descricao = dadosNovos.Descricao;
+        //        dadosAntigos.Unidade = dadosNovos.Unidade;
+        //        dadosAntigos.PrecoCusto = dadosNovos.PrecoCusto;
+        //        dadosAntigos.PrecoVenda = dadosNovos.PrecoVenda;
+        //        dadosAntigos.EmEstoque = dadosNovos.EmEstoque;
         //        baseDeDados contexto = new baseDeDados();
         //        contexto.Entry(dadosAntigos).State = System.Data.Entity.EntityState.Modified;
         //        contexto.SaveChanges();
         //    }
         //}
 
-        //List<Cliente> PersquisarPorNome(string nome)
+        //List<Produto> PersquisarPorNome(string nome)
         //{
         //    // LINQ
         //    // Exemplos para consulta de LINQs:
@@ -66,12 +63,12 @@ namespace Controllers
 
         //    baseDeDados contexto = new baseDeDados();
 
-        //    //  var lista = from c in contexto.Cliente
-        //    //  select c;
+        //    //  var lista = from p in contexto.Produto
+        //    //  select p;
 
-        //    var lista = from c in contexto.Cliente
-        //                where c.Nome == nome
-        //                select c;
+        //    var lista = from p in contexto.Produto
+        //                where p.Nome == nome
+        //                select p;
 
         //    return lista.ToList();
         //}

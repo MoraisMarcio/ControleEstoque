@@ -1,49 +1,47 @@
-﻿using Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Controllers
 {
-    class ClienteController
+    class FornecedorController
     {
-        //void Inserir(Cliente c)
+        //void Inserir(Fornecedor f)
         //{
         //    baseDeDados contexto = new baseDeDados();
-        //    contexto.Cliente.Add(c);
+        //    contexto.Fornecedor.Add(f);
         //    contexto.SaveChanges();
         //}
 
-        //List<Cliente> ListarTodosClientes()
+        //List<Fornecedor> ListarTodosFornecedores()
         //{
         //    baseDeDados contexto = new baseDeDados();
-        //    return contexto.Cliente.ToList();
+        //    return contexto.Fornecedor.ToList();
         //}
 
-        //Cliente BuscarPorId(int id)
+        //Fornecedor BuscarPorId(int id)
         //{
         //    baseDeDados contexto = new baseDeDados();
-        //    return contexto.Cliente.Find(id);
+        //    return contexto.Fornecedor.Find(id);
         //}
 
         //void Excluir(int id)
         //{
-        //    Cliente thisExcluir = BuscarPorId(id);
+        //    Fornecedor thisExcluir = BuscarPorId(id);
 
         //    if (thisExcluir != null)
         //    {
         //        baseDeDados contexto = new baseDeDados();
-        //        contexto.Cliente.Remove(thisExcluir);
+        //        contexto.Fornecedor.Remove(thisExcluir);
         //        contexto.SaveChanges();
         //    }
         //}
 
-        //void Editar(int id, Cliente dadosNovos)
+        //void Editar(int id, Fornecedor dadosNovos)
         //{
-        //    Cliente dadosAntigos = BuscarPorId(id);
+        //    Fornecedor dadosAntigos = BuscarPorId(id);
         //    if (dadosAntigos != null)
         //    {
         //        dadosAntigos.Nome = dadosNovos.Nome;
@@ -58,7 +56,7 @@ namespace Controllers
         //    }
         //}
 
-        //List<Cliente> PersquisarPorNome(string nome)
+        //List<Fornecedor> PersquisarPorNome(string nome)
         //{
         //    // LINQ
         //    // Exemplos para consulta de LINQs:
@@ -66,12 +64,12 @@ namespace Controllers
 
         //    baseDeDados contexto = new baseDeDados();
 
-        //    //  var lista = from c in contexto.Cliente
-        //    //  select c;
+        //    //  var lista = from f in contexto.Fornecedor
+        //    //  select f;
 
-        //    var lista = from c in contexto.Cliente
-        //                where c.Nome == nome
-        //                select c;
+        //    var lista = from f in contexto.Fornecedor
+        //                where f.Nome == nome
+        //                select f;
 
         //    return lista.ToList();
         //}
