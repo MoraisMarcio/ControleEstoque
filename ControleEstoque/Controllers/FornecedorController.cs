@@ -45,11 +45,6 @@ namespace Controllers
         //    if (dadosAntigos != null)
         //    {
         //        dadosAntigos.Nome = dadosNovos.Nome;
-        //        dadosAntigos.Telefone = dadosNovos.Telefone;
-        //        dadosAntigos.Bairro = dadosNovos.Bairro;
-        //        dadosAntigos.Endereco = dadosNovos.Endereco;
-        //        dadosAntigos.NumResidencial = dadosNovos.NumResidencial;
-        //        dadosAntigos.Cidade = dadosNovos.Cidade;
         //        baseDeDados contexto = new baseDeDados();
         //        contexto.Entry(dadosAntigos).State = System.Data.Entity.EntityState.Modified;
         //        contexto.SaveChanges();
