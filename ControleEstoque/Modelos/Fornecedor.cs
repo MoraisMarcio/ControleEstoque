@@ -14,7 +14,7 @@ namespace Modelos
         public int FornecedorId { get; set; }
 
         [Required]
-        public string Fornecedor_Nome { get; set; }
+        public string Nome { get; set; }
 
         // RELACIONAMENTO
     }

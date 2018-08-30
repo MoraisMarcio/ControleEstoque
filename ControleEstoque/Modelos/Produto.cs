@@ -14,19 +14,19 @@ namespace Modelos
         public int ProdutoId { get; set; }
 
         [Required]
-        public string Produto_Nome { get; set; }
+        public string Nome { get; set; }
 
         [Required]
-        public string Produto_Unidade { get; set; }
+        public string Unidade { get; set; }
 
         [Required]
-        public decimal Produto_PrecoCusto { get; set; }
+        public decimal PrecoCusto { get; set; }
 
         [Required]
-        public decimal Produto_PrecoVenda { get; set; }
+        public decimal PrecoVenda { get; set; }
 
         [Required]
-        public float Produto_EmEstoque { get; set; }
+        public float EmEstoque { get; set; }
 
         // RELACIONAMENTO
 

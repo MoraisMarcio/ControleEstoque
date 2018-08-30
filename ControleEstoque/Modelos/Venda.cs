@@ -11,7 +11,7 @@ namespace Modelos
     {
         // PROPRIEDADES
         [Required]
-        public DateTime Venda_Data { get; set; }
+        public DateTime Data { get; set; }
 
         // Chave Estrangeira
         public int ItemProdutoId { get; set; }

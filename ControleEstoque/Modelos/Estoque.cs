@@ -14,7 +14,7 @@ namespace Modelos
         public int EstoqueId { get; set; }
 
         [Required]
-        public string Estoque_Nome { get; set; }
+        public string Nome { get; set; }
 
         // Chave Estrangeira
         public int ProdutoId { get; set; }

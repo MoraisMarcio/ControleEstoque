@@ -13,10 +13,10 @@ namespace Modelos
         public int ItemProdutoId { get; set; }
 
         [Required]
-        public decimal ItemProduto_Preco { get; set; }
+        public decimal Preco { get; set; }
 
         [Required]
-        public float ItemProduto_Quantidade { get; set; }
+        public float Quantidade { get; set; }
 
         // Chave Estrangeira
         public int ProdutoId { get; set; }

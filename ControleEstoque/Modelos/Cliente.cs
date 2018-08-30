@@ -15,22 +15,22 @@ namespace Modelos
         public int ClienteId { get; set; }
 
         [Required] 
-        public string Cliente_Nome { get; set; }
+        public string Nome { get; set; }
 
         [Required]
         [StringLength(9)]
-        public string Cliente_Telefone { get; set; } // CRIAR TABELA TELEFONE
+        public string Telefone { get; set; } // CRIAR TABELA TELEFONE
 
         [Required]
-        public string Cliente_Bairro { get; set; }
+        public string Bairro { get; set; }
 
         [Required]
-        public string Cliente_Endereco { get; set; }
+        public string Endereco { get; set; }
 
         [Required]
-        public string Cliente_NumResidencial { get; set; }
+        public string NumResidencial { get; set; }
         
-        public string Cliente_Cidade { get; set; }
+        public string Cidade { get; set; }
 
         // RELACIONAMENTO
     }
