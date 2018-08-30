@@ -9,15 +9,13 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="210" Width="396" Grid.Row="0" Grid.Column="0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="419" Width="792" Grid.Row="0" Grid.Column="0">
             <Button x:Name="btnClientes" Content="Clientes" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,20" Height="70" Width="70" Click="btnClientes_Click" />
 
         </StackPanel>

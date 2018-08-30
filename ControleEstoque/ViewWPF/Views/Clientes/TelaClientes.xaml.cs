@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ViewWPF
+namespace ViewWPF.Views.Clientes
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Lógica interna para TelaClientes.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TelaClientes : Window
     {
-        public MainWindow()
+        public TelaClientes()
         {
             InitializeComponent();
+        }
+
+        private void btnCadastrarClientes_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
