@@ -4,11 +4,241 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Modelos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="ModelosTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Modelos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelosStoreContainer">
+    <EntitySet Name="Produtos" EntityType="Modelos.Store.Produtos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Estoques" EntityType="Modelos.Store.Estoques" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemEntradas" EntityType="Modelos.Store.ItemEntradas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Compras" EntityType="Modelos.Store.Compras" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Fornecedores" EntityType="Modelos.Store.Fornecedores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemSaidas" EntityType="Modelos.Store.ItemSaidas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vendas" EntityType="Modelos.Store.Vendas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clientes" EntityType="Modelos.Store.Clientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Recebimentos" EntityType="Modelos.Store.Recebimentos" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProdutoEstoque" Association="Modelos.Store.ProdutoEstoque">
+      <End Role="Produto" EntitySet="Produtos" />
+      <End Role="Estoque" EntitySet="Estoques" />
+    </AssociationSet>
+    <AssociationSet Name="ProdutoItemEntrada" Association="Modelos.Store.ProdutoItemEntrada">
+      <End Role="Produto" EntitySet="Produtos" />
+      <End Role="ItemEntrada" EntitySet="ItemEntradas" />
+    </AssociationSet>
+    <AssociationSet Name="CompraItemEntrada" Association="Modelos.Store.CompraItemEntrada">
+      <End Role="Compra" EntitySet="Compras" />
+      <End Role="ItemEntrada" EntitySet="ItemEntradas" />
+    </AssociationSet>
+    <AssociationSet Name="FornecedorCompra" Association="Modelos.Store.FornecedorCompra">
+      <End Role="Fornecedor" EntitySet="Fornecedores" />
+      <End Role="Compra" EntitySet="Compras" />
+    </AssociationSet>
+    <AssociationSet Name="ProdutoItemSaida" Association="Modelos.Store.ProdutoItemSaida">
+      <End Role="Produto" EntitySet="Produtos" />
+      <End Role="ItemSaida" EntitySet="ItemSaidas" />
+    </AssociationSet>
+    <AssociationSet Name="VendaItemSaida" Association="Modelos.Store.VendaItemSaida">
+      <End Role="Venda" EntitySet="Vendas" />
+      <End Role="ItemSaida" EntitySet="ItemSaidas" />
+    </AssociationSet>
+    <AssociationSet Name="ClienteVenda" Association="Modelos.Store.ClienteVenda">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Venda" EntitySet="Vendas" />
+    </AssociationSet>
+    <AssociationSet Name="VendaRecebimento" Association="Modelos.Store.VendaRecebimento">
+      <End Role="Venda" EntitySet="Vendas" />
+      <End Role="Recebimento" EntitySet="Recebimentos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Produtos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Unidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrecoCusto" Type="decimal" Nullable="false" />
+    <Property Name="PrecoVenda" Type="decimal" Nullable="false" />
+    <Property Name="EmEstoque" Type="float" Nullable="false" />
+    <Property Name="EstoqueId" Type="int" Nullable="false" />
+    <Property Name="Estoque_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estoques">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProdutoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemEntradas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProdutoId" Type="int" Nullable="false" />
+    <Property Name="PrecoUnitario" Type="decimal" Nullable="false" />
+    <Property Name="Quantidade" Type="float" Nullable="false" />
+    <Property Name="Produto_Id" Type="int" Nullable="false" />
+    <Property Name="Compra_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Compras">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FornecedorId" Type="int" Nullable="false" />
+    <Property Name="ItemEntradaId" Type="int" Nullable="false" />
+    <Property Name="PrecoTotal" Type="decimal" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Fornecedor_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fornecedores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemSaidas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProdutoId" Type="int" Nullable="false" />
+    <Property Name="PrecoUnitario" Type="decimal" Nullable="false" />
+    <Property Name="Quantidade" Type="float" Nullable="false" />
+    <Property Name="Produto_Id" Type="int" Nullable="false" />
+    <Property Name="Venda_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClienteId" Type="int" Nullable="false" />
+    <Property Name="ItemSaidaId" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="PrecoTotal" Type="decimal" Nullable="false" />
+    <Property Name="Cliente_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bairro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Endereco" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumResidencial" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cidade" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recebimentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendaId" Type="int" Nullable="false" />
+    <Property Name="DataVencimento" Type="datetime" Nullable="false" />
+    <Property Name="Valor" Type="decimal" Nullable="false" />
+    <Property Name="Venda_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ProdutoEstoque">
+    <End Role="Produto" Type="Modelos.Store.Produtos" Multiplicity="*" />
+    <End Role="Estoque" Type="Modelos.Store.Estoques" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Estoque">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produto">
+        <PropertyRef Name="Estoque_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdutoItemEntrada">
+    <End Role="Produto" Type="Modelos.Store.Produtos" Multiplicity="1" />
+    <End Role="ItemEntrada" Type="Modelos.Store.ItemEntradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemEntrada">
+        <PropertyRef Name="Produto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompraItemEntrada">
+    <End Role="Compra" Type="Modelos.Store.Compras" Multiplicity="1" />
+    <End Role="ItemEntrada" Type="Modelos.Store.ItemEntradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compra">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemEntrada">
+        <PropertyRef Name="Compra_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FornecedorCompra">
+    <End Role="Fornecedor" Type="Modelos.Store.Fornecedores" Multiplicity="1" />
+    <End Role="Compra" Type="Modelos.Store.Compras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fornecedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="Fornecedor_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdutoItemSaida">
+    <End Role="Produto" Type="Modelos.Store.Produtos" Multiplicity="1" />
+    <End Role="ItemSaida" Type="Modelos.Store.ItemSaidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemSaida">
+        <PropertyRef Name="Produto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VendaItemSaida">
+    <End Role="Venda" Type="Modelos.Store.Vendas" Multiplicity="1" />
+    <End Role="ItemSaida" Type="Modelos.Store.ItemSaidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemSaida">
+        <PropertyRef Name="Venda_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClienteVenda">
+    <End Role="Cliente" Type="Modelos.Store.Clientes" Multiplicity="1" />
+    <End Role="Venda" Type="Modelos.Store.Vendas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Venda">
+        <PropertyRef Name="Cliente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VendaRecebimento">
+    <End Role="Venda" Type="Modelos.Store.Vendas" Multiplicity="1" />
+    <End Role="Recebimento" Type="Modelos.Store.Recebimentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venda">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recebimento">
+        <PropertyRef Name="Venda_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Modelos" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -193,13 +423,169 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Modelos" />
-        <Alias Key="Target" Value="Modelos.Store" />
-        <EntityContainerMapping CdmEntityContainer="ModelosContainer" StorageEntityContainer="ModelosTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelosStoreContainer" CdmEntityContainer="ModelosContainer">
+    <EntitySetMapping Name="Produtos">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Produto)">
+        <MappingFragment StoreEntitySet="Produtos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Unidade" ColumnName="Unidade" />
+          <ScalarProperty Name="PrecoCusto" ColumnName="PrecoCusto" />
+          <ScalarProperty Name="PrecoVenda" ColumnName="PrecoVenda" />
+          <ScalarProperty Name="EmEstoque" ColumnName="EmEstoque" />
+          <ScalarProperty Name="EstoqueId" ColumnName="EstoqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estoques">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Estoque)">
+        <MappingFragment StoreEntitySet="Estoques">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemEntradas">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.ItemEntrada)">
+        <MappingFragment StoreEntitySet="ItemEntradas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Compras">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Compra)">
+        <MappingFragment StoreEntitySet="Compras">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FornecedorId" ColumnName="FornecedorId" />
+          <ScalarProperty Name="ItemEntradaId" ColumnName="ItemEntradaId" />
+          <ScalarProperty Name="PrecoTotal" ColumnName="PrecoTotal" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fornecedores">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Fornecedor)">
+        <MappingFragment StoreEntitySet="Fornecedores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemSaidas">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.ItemSaida)">
+        <MappingFragment StoreEntitySet="ItemSaidas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendas">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Venda)">
+        <MappingFragment StoreEntitySet="Vendas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="ItemSaidaId" ColumnName="ItemSaidaId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="PrecoTotal" ColumnName="PrecoTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Cliente)">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="NumResidencial" ColumnName="NumResidencial" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recebimentos">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Recebimento)">
+        <MappingFragment StoreEntitySet="Recebimentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VendaId" ColumnName="VendaId" />
+          <ScalarProperty Name="DataVencimento" ColumnName="DataVencimento" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProdutoEstoque" TypeName="Modelos.ProdutoEstoque" StoreEntitySet="Produtos">
+      <EndProperty Name="Estoque">
+        <ScalarProperty Name="Id" ColumnName="Estoque_Id" />
+      </EndProperty>
+      <EndProperty Name="Produto">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProdutoItemEntrada" TypeName="Modelos.ProdutoItemEntrada" StoreEntitySet="ItemEntradas">
+      <EndProperty Name="Produto">
+        <ScalarProperty Name="Id" ColumnName="Produto_Id" />
+      </EndProperty>
+      <EndProperty Name="ItemEntrada">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CompraItemEntrada" TypeName="Modelos.CompraItemEntrada" StoreEntitySet="ItemEntradas">
+      <EndProperty Name="Compra">
+        <ScalarProperty Name="Id" ColumnName="Compra_Id" />
+      </EndProperty>
+      <EndProperty Name="ItemEntrada">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FornecedorCompra" TypeName="Modelos.FornecedorCompra" StoreEntitySet="Compras">
+      <EndProperty Name="Fornecedor">
+        <ScalarProperty Name="Id" ColumnName="Fornecedor_Id" />
+      </EndProperty>
+      <EndProperty Name="Compra">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProdutoItemSaida" TypeName="Modelos.ProdutoItemSaida" StoreEntitySet="ItemSaidas">
+      <EndProperty Name="Produto">
+        <ScalarProperty Name="Id" ColumnName="Produto_Id" />
+      </EndProperty>
+      <EndProperty Name="ItemSaida">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendaItemSaida" TypeName="Modelos.VendaItemSaida" StoreEntitySet="ItemSaidas">
+      <EndProperty Name="Venda">
+        <ScalarProperty Name="Id" ColumnName="Venda_Id" />
+      </EndProperty>
+      <EndProperty Name="ItemSaida">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClienteVenda" TypeName="Modelos.ClienteVenda" StoreEntitySet="Vendas">
+      <EndProperty Name="Cliente">
+        <ScalarProperty Name="Id" ColumnName="Cliente_Id" />
+      </EndProperty>
+      <EndProperty Name="Venda">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VendaRecebimento" TypeName="Modelos.VendaRecebimento" StoreEntitySet="Recebimentos">
+      <EndProperty Name="Venda">
+        <ScalarProperty Name="Id" ColumnName="Venda_Id" />
+      </EndProperty>
+      <EndProperty Name="Recebimento">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -213,6 +599,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
