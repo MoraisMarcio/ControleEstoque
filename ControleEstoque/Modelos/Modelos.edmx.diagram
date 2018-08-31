@@ -4,10 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="28cd0ab03c344ec7a177dbe474f05b30" Name="Diagram1" >
-        <EntityTypeShape EntityType="Modelos.Produto" Width="1.5" PointX="3.625" PointY="2.625" />
+      <Diagram DiagramId="28cd0ab03c344ec7a177dbe474f05b30" Name="Diagram1" ZoomLevel="86" >
+        <EntityTypeShape EntityType="Modelos.Produto" Width="1.5" PointX="3.625" PointY="2.875" />
         <EntityTypeShape EntityType="Modelos.Estoque" Width="1.5" PointX="3.625" PointY="0.5" />
+        <EntityTypeShape EntityType="Modelos.ItemEntrada" Width="1.5" PointX="1.125" PointY="2.875" />
+        <EntityTypeShape EntityType="Modelos.Compra" Width="1.5" PointX="1.125" PointY="5.75" />
+        <EntityTypeShape EntityType="Modelos.Fornecedor" Width="1.5" PointX="1.125" PointY="8.875" />
+        <EntityTypeShape EntityType="Modelos.ItemSaida" Width="1.5" PointX="6.375" PointY="2.875" />
+        <EntityTypeShape EntityType="Modelos.Venda" Width="1.5" PointX="6.375" PointY="5.75" />
+        <EntityTypeShape EntityType="Modelos.Cliente" Width="1.5" PointX="6.375" PointY="9" />
+        <EntityTypeShape EntityType="Modelos.Recebimento" Width="1.5" PointX="8.75" PointY="5.75" />
         <AssociationConnector Association="Modelos.ProdutoEstoque" />
+        <AssociationConnector Association="Modelos.ProdutoItemEntrada" />
+        <AssociationConnector Association="Modelos.CompraItemEntrada" />
+        <AssociationConnector Association="Modelos.FornecedorCompra" />
+        <AssociationConnector Association="Modelos.ProdutoItemSaida" />
+        <AssociationConnector Association="Modelos.VendaItemSaida" />
+        <AssociationConnector Association="Modelos.ClienteVenda" />
+        <AssociationConnector Association="Modelos.VendaRecebimento" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

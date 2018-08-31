@@ -15,9 +15,44 @@
         <EntityContainer Name="ModelosContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Produtos" EntityType="Modelos.Produto" />
           <EntitySet Name="Estoques" EntityType="Modelos.Estoque" />
+          <EntitySet Name="ItemEntradas" EntityType="Modelos.ItemEntrada" />
+          <EntitySet Name="Compras" EntityType="Modelos.Compra" />
+          <EntitySet Name="Fornecedores" EntityType="Modelos.Fornecedor" />
+          <EntitySet Name="ItemSaidas" EntityType="Modelos.ItemSaida" />
+          <EntitySet Name="Vendas" EntityType="Modelos.Venda" />
+          <EntitySet Name="Clientes" EntityType="Modelos.Cliente" />
+          <EntitySet Name="Recebimentos" EntityType="Modelos.Recebimento" />
           <AssociationSet Name="ProdutoEstoque" Association="Modelos.ProdutoEstoque">
             <End Role="Produto" EntitySet="Produtos" />
             <End Role="Estoque" EntitySet="Estoques" />
+          </AssociationSet>
+          <AssociationSet Name="ProdutoItemEntrada" Association="Modelos.ProdutoItemEntrada">
+            <End Role="Produto" EntitySet="Produtos" />
+            <End Role="ItemEntrada" EntitySet="ItemEntradas" />
+          </AssociationSet>
+          <AssociationSet Name="CompraItemEntrada" Association="Modelos.CompraItemEntrada">
+            <End Role="Compra" EntitySet="Compras" />
+            <End Role="ItemEntrada" EntitySet="ItemEntradas" />
+          </AssociationSet>
+          <AssociationSet Name="FornecedorCompra" Association="Modelos.FornecedorCompra">
+            <End Role="Fornecedor" EntitySet="Fornecedores" />
+            <End Role="Compra" EntitySet="Compras" />
+          </AssociationSet>
+          <AssociationSet Name="ProdutoItemSaida" Association="Modelos.ProdutoItemSaida">
+            <End Role="Produto" EntitySet="Produtos" />
+            <End Role="ItemSaida" EntitySet="ItemSaidas" />
+          </AssociationSet>
+          <AssociationSet Name="VendaItemSaida" Association="Modelos.VendaItemSaida">
+            <End Role="Venda" EntitySet="Vendas" />
+            <End Role="ItemSaida" EntitySet="ItemSaidas" />
+          </AssociationSet>
+          <AssociationSet Name="ClienteVenda" Association="Modelos.ClienteVenda">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Venda" EntitySet="Vendas" />
+          </AssociationSet>
+          <AssociationSet Name="VendaRecebimento" Association="Modelos.VendaRecebimento">
+            <End Role="Venda" EntitySet="Vendas" />
+            <End Role="Recebimento" EntitySet="Recebimentos" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Produto">
@@ -30,19 +65,129 @@
           <Property Name="PrecoCusto" Type="Decimal" Nullable="false" />
           <Property Name="PrecoVenda" Type="Decimal" Nullable="false" />
           <Property Name="EmEstoque" Type="Double" Nullable="false" />
+          <Property Name="EstoqueId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Estoque" Relationship="Modelos.ProdutoEstoque" FromRole="Produto" ToRole="Estoque" />
+          <NavigationProperty Name="ItemEntradas" Relationship="Modelos.ProdutoItemEntrada" FromRole="Produto" ToRole="ItemEntrada" />
+          <NavigationProperty Name="ItemSaidas" Relationship="Modelos.ProdutoItemSaida" FromRole="Produto" ToRole="ItemSaida" />
         </EntityType>
         <EntityType Name="Estoque">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Produto" Relationship="Modelos.ProdutoEstoque" FromRole="Estoque" ToRole="Produto" />
           <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="ProdutoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produtos" Relationship="Modelos.ProdutoEstoque" FromRole="Estoque" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="ItemEntrada">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdutoId" Type="Int32" Nullable="false" />
+          <Property Name="PrecoUnitario" Type="Decimal" Nullable="false" />
+          <Property Name="Quantidade" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="Modelos.ProdutoItemEntrada" FromRole="ItemEntrada" ToRole="Produto" />
+          <NavigationProperty Name="Compra" Relationship="Modelos.CompraItemEntrada" FromRole="ItemEntrada" ToRole="Compra" />
+        </EntityType>
+        <EntityType Name="Compra">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FornecedorId" Type="Int32" Nullable="false" />
+          <Property Name="ItemEntradaId" Type="Int32" Nullable="false" />
+          <Property Name="PrecoTotal" Type="Decimal" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ItemEntradas" Relationship="Modelos.CompraItemEntrada" FromRole="Compra" ToRole="ItemEntrada" />
+          <NavigationProperty Name="Fornecedor" Relationship="Modelos.FornecedorCompra" FromRole="Compra" ToRole="Fornecedor" />
+        </EntityType>
+        <EntityType Name="Fornecedor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <NavigationProperty Name="Compras" Relationship="Modelos.FornecedorCompra" FromRole="Fornecedor" ToRole="Compra" />
+        </EntityType>
+        <EntityType Name="ItemSaida">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdutoId" Type="Int32" Nullable="false" />
+          <Property Name="PrecoUnitario" Type="Decimal" Nullable="false" />
+          <Property Name="Quantidade" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="Modelos.ProdutoItemSaida" FromRole="ItemSaida" ToRole="Produto" />
+          <NavigationProperty Name="Venda" Relationship="Modelos.VendaItemSaida" FromRole="ItemSaida" ToRole="Venda" />
+        </EntityType>
+        <EntityType Name="Venda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteId" Type="Int32" Nullable="false" />
+          <Property Name="ItemSaidaId" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="PrecoTotal" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="ItemSaidas" Relationship="Modelos.VendaItemSaida" FromRole="Venda" ToRole="ItemSaida" />
+          <NavigationProperty Name="Cliente" Relationship="Modelos.ClienteVenda" FromRole="Venda" ToRole="Cliente" />
+          <NavigationProperty Name="Recebimentos" Relationship="Modelos.VendaRecebimento" FromRole="Venda" ToRole="Recebimento" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Vendas" Relationship="Modelos.ClienteVenda" FromRole="Cliente" ToRole="Venda" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" MaxLength="9" />
+          <Property Name="Bairro" Type="String" Nullable="false" />
+          <Property Name="Endereco" Type="String" Nullable="false" />
+          <Property Name="NumResidencial" Type="String" Nullable="false" />
+          <Property Name="Cidade" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recebimento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Venda" Relationship="Modelos.VendaRecebimento" FromRole="Recebimento" ToRole="Venda" />
+          <Property Name="DataVencimento" Type="DateTime" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" />
         </EntityType>
         <Association Name="ProdutoEstoque">
           <End Type="Modelos.Produto" Role="Produto" Multiplicity="*" />
           <End Type="Modelos.Estoque" Role="Estoque" Multiplicity="1" />
+        </Association>
+        <Association Name="ProdutoItemEntrada">
+          <End Type="Modelos.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="Modelos.ItemEntrada" Role="ItemEntrada" Multiplicity="*" />
+        </Association>
+        <Association Name="CompraItemEntrada">
+          <End Type="Modelos.Compra" Role="Compra" Multiplicity="1" />
+          <End Type="Modelos.ItemEntrada" Role="ItemEntrada" Multiplicity="*" />
+        </Association>
+        <Association Name="FornecedorCompra">
+          <End Type="Modelos.Fornecedor" Role="Fornecedor" Multiplicity="1" />
+          <End Type="Modelos.Compra" Role="Compra" Multiplicity="*" />
+        </Association>
+        <Association Name="ProdutoItemSaida">
+          <End Type="Modelos.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="Modelos.ItemSaida" Role="ItemSaida" Multiplicity="*" />
+        </Association>
+        <Association Name="VendaItemSaida">
+          <End Type="Modelos.Venda" Role="Venda" Multiplicity="1" />
+          <End Type="Modelos.ItemSaida" Role="ItemSaida" Multiplicity="*" />
+        </Association>
+        <Association Name="ClienteVenda">
+          <End Type="Modelos.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="Modelos.Venda" Role="Venda" Multiplicity="*" />
+        </Association>
+        <Association Name="VendaRecebimento">
+          <End Type="Modelos.Venda" Role="Venda" Multiplicity="1" />
+          <End Type="Modelos.Recebimento" Role="Recebimento" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
