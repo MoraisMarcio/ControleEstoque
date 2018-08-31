@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    class Recebimento
+    public class Recebimento
     {
         // PROPRIEDADES
         [Key]

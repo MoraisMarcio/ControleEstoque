@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,20 +13,19 @@ namespace Modelos.DAL
         {
             //  App.config
 
-            //          < connectionStrings >
-            //            < add name = "StringConexao"
+            // < connectionStrings >
+            // < add name = "StringConexao"
 
-            //                connectionString =
-            //                "Data Source=(localdb)\MSSQLLOCALDB;
-            //                Initial Catalog = CodeFirstDB;
-            //                Integrated Security = True"
+            //  connectionString =
+            //  "Data Source=(localdb)\MSSQLLOCALDB;
+            //   Initial Catalog = CodeFirstDB;
+            //   Integrated Security = True"
 
-            //                providerName = "System.Data.SqlClient"
-            //            />
-            //        </ connectionStrings >
+            //   providerName = "System.Data.SqlClient" />
+            //  </ connectionStrings >
         }
 
-        public DbSet<Estoque> Estoques { get; set; } 
+        public DbSet<Estoque> Estoques { get; set; }
 
         public DbSet<Produto> Produtos { get; set; }
 
@@ -36,8 +35,14 @@ namespace Modelos.DAL
 
         public DbSet<Fornecedor> Fornecedores { get; set; }
 
-        public DbSet<ItemProduto> ItemProdutos { get; set; }
+        public DbSet<ItemEntrada> ItemEntradas { get; set; }
+
+        public DbSet<ItemSaida> ItemSaidas { get; set; }
 
         public DbSet<Venda> Vendas { get; set; }
+
+        public DbSet<Recebimento> Recebimentos { get; set; }
     }
 }
+
+
