@@ -20,5 +20,6 @@ namespace Modelos
         public int ProdutoId { get; set; }
 
         // RELACIONAMENTO
+        public virtual ICollection<Produto> _Produtos { get; set; }
     }
 }

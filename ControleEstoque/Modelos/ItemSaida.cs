@@ -20,8 +20,9 @@ namespace Modelos
 
         // Chave Estrangeira
         public int ProdutoId { get; set; }
-        
-        // RELACIONAMENTO
 
+        // RELACIONAMENTO
+        public virtual Produto _Produtos { get; set; }
+        public virtual Venda _Vendas { get; set; }
     }
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

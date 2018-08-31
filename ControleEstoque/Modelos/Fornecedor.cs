@@ -17,5 +17,6 @@ namespace Modelos
         public string Nome { get; set; }
 
         // RELACIONAMENTO
+        public virtual ICollection<Compra> _Compras { get; set; }
     }
 }

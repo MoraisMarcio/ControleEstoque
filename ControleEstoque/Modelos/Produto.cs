@@ -32,6 +32,8 @@ namespace Modelos
         public int EstoqueId { get; set; }
 
         // RELACIONAMENTO
-
+        public virtual ICollection<ItemEntrada> _ItemEntradas { get; set; }
+        public virtual ICollection<ItemSaida> _ItemSaidas { get; set; }
+        public virtual Estoque _Estoques { get; set; }
     }
 }

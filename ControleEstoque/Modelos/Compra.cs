@@ -10,6 +10,9 @@ namespace Modelos
     public class Compra
     {
         // PROPRIEDADES
+        [Key]
+        public int CompraId { get; set; }
+
         [Required]
         public DateTime Data { get; set; }
         public decimal PrecoTotal { get; set; }
@@ -19,5 +22,7 @@ namespace Modelos
         public int FornecedorId { get; set; }
 
         // RELACIONAMENTO
+        public virtual ICollection<ItemEntrada> _ItemEntradas { get; set; }
+        public virtual Fornecedor _Fornecedores { get; set; }
     }
 }
