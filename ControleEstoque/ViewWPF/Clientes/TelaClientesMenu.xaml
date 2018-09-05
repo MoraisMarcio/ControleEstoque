@@ -1,0 +1,36 @@
+﻿<Window x:Class="ViewWPF.Clientes.TelaClientesMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViewWPF.Clientes"
+        mc:Ignorable="d"
+        Title="TelaClientesMenu" Height="450" Width="800">
+    <Grid>
+        <TextBlock x:Name="labelNome" Margin="82,125,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"/>
+        <TextBox x:Name="campoNome" HorizontalAlignment="Left" Height="23" Margin="163,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="208,296,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock x:Name="labelTelefone" HorizontalAlignment="Left" Margin="82,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" TextAlignment="Right"><Run Text="Telefone"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="campoTelefone" HorizontalAlignment="Left" Height="23" Margin="163,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="labelBairro" HorizontalAlignment="Left" Margin="82,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" TextAlignment="Right"><Run Text="Bairro"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="campoBairro" HorizontalAlignment="Left" Height="23" Margin="163,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="labelEndereco" HorizontalAlignment="Left" Margin="82,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" TextAlignment="Right" Text="Endereço:"/>
+        <TextBox x:Name="campoEndereco" HorizontalAlignment="Left" Height="23" Margin="163,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="labelNumResidencial" HorizontalAlignment="Left" Margin="82,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" TextAlignment="Right"><Run Text="Nº"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="campoNumResidencial" HorizontalAlignment="Left" Height="23" Margin="163,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="labelCidade" HorizontalAlignment="Left" Margin="82,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" TextAlignment="Right"><Run Text="Cidade"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="campoCidade" HorizontalAlignment="Left" Height="23" Margin="163,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="78,45,0,0" TextWrapping="Wrap" Text="Cadastro de Clientes" VerticalAlignment="Top" Width="258" Height="28" FontSize="22"/>
+
+        <TabControl x:Name="tabClientesMenu" HorizontalAlignment="Left" Height="28" Margin="0,392,0,-1" VerticalAlignment="Top" Width="792" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem x:Name="tabClientesCadastro" Header="Cadastro">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+
+            <TabItem x:Name="tabClientesConsulta" Header="Consulta">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

@@ -10,26 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ViewWPF.Clientes;
 
-namespace ViewWPF
+namespace ViewWPF.Clientes
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Lógica interna para TelaClientesMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TelaClientesMenu : Window
     {
-        public MainWindow()
+        public TelaClientesMenu()
         {
             InitializeComponent();
         }
 
-        private void btnClientes_Click(object sender, RoutedEventArgs e)
-        {
-            TelaClientesMenu minhaTelaClientesMenu = new TelaClientesMenu();
-            minhaTelaClientesMenu.Show();
-        }
+        
     }
 }

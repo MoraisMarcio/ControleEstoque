@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/31/2018 15:39:13
--- Generated from EDMX file: C:\Users\Controladoria\Desktop\MÁRCIO\PROJETOS\ControleEstoque\ControleEstoque\Modelos\Modelos.edmx
+-- Date Created: 09/04/2018 21:15:32
+-- Generated from EDMX file: C:\Users\1620759\Desktop\ControleEstoque\ControleEstoque\Modelos\Modelos.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,11 +17,62 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ProdutoEstoque]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Produtos] DROP CONSTRAINT [FK_ProdutoEstoque];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdutoItemEntrada]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemEntradas] DROP CONSTRAINT [FK_ProdutoItemEntrada];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompraItemEntrada]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemEntradas] DROP CONSTRAINT [FK_CompraItemEntrada];
+GO
+IF OBJECT_ID(N'[dbo].[FK_FornecedorCompra]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Compras] DROP CONSTRAINT [FK_FornecedorCompra];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdutoItemSaida]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemSaidas] DROP CONSTRAINT [FK_ProdutoItemSaida];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VendaItemSaida]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemSaidas] DROP CONSTRAINT [FK_VendaItemSaida];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ClienteVenda]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Vendas] DROP CONSTRAINT [FK_ClienteVenda];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VendaRecebimento]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Recebimentos] DROP CONSTRAINT [FK_VendaRecebimento];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Produtos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Produtos];
+GO
+IF OBJECT_ID(N'[dbo].[Estoques]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Estoques];
+GO
+IF OBJECT_ID(N'[dbo].[ItemEntradas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ItemEntradas];
+GO
+IF OBJECT_ID(N'[dbo].[Compras]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Compras];
+GO
+IF OBJECT_ID(N'[dbo].[Fornecedores]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Fornecedores];
+GO
+IF OBJECT_ID(N'[dbo].[ItemSaidas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ItemSaidas];
+GO
+IF OBJECT_ID(N'[dbo].[Vendas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Vendas];
+GO
+IF OBJECT_ID(N'[dbo].[Clientes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Clientes];
+GO
+IF OBJECT_ID(N'[dbo].[Recebimentos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Recebimentos];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
