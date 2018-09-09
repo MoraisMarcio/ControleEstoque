@@ -7,57 +7,52 @@ using System.Threading.Tasks;
 
 namespace Controllers
 {
-    class ClienteController
+    class FornecedorController
     {
-        void Inserir(Cliente c)
+        void Inserir(Fornecedor f)
         {
             ModelosContainer contexto = new ModelosContainer();
-            contexto.Clientes.Add(c);
+            contexto.Fornecedores.Add(f);
             contexto.SaveChanges();
         }
 
-        List<Cliente> ListarTodosClientes()
+        List<Fornecedor> ListarTodosFornecedores()
         {
             ModelosContainer contexto = new ModelosContainer();
-            return contexto.Clientes.ToList();
+            return contexto.Fornecedores.ToList();
         }
 
-        Cliente BuscarPorId(int id)
+        Fornecedor BuscarPorId(int id)
         {
             ModelosContainer contexto = new ModelosContainer();
-            return contexto.Clientes.Find(id);
+            return contexto.Fornecedores.Find(id);
         }
 
         void Excluir(int id)
         {
-            Cliente thisExcluir = BuscarPorId(id);
+            Fornecedor thisExcluir = BuscarPorId(id);
 
             if (thisExcluir != null)
             {
                 ModelosContainer contexto = new ModelosContainer();
-                contexto.Clientes.Remove(thisExcluir);
+                contexto.Fornecedores.Remove(thisExcluir);
                 contexto.SaveChanges();
             }
         }
 
-        void Editar(int id, Cliente dadosNovos)
+        void Editar(int id, Fornecedor dadosNovos)
         {
-            Cliente dadosAntigos = BuscarPorId(id);
+            Fornecedor dadosAntigos = BuscarPorId(id);
             if (dadosAntigos != null)
             {
                 dadosAntigos.Nome = dadosNovos.Nome;
-                dadosAntigos.Telefone = dadosNovos.Telefone;
-                dadosAntigos.Bairro = dadosNovos.Bairro;
-                dadosAntigos.Endereco = dadosNovos.Endereco;
-                dadosAntigos.NumResidencial = dadosNovos.NumResidencial;
-                dadosAntigos.Cidade = dadosNovos.Cidade;
                 ModelosContainer contexto = new ModelosContainer();
                 contexto.Entry(dadosAntigos).State = System.Data.Entity.EntityState.Modified;
                 contexto.SaveChanges();
             }
         }
 
-        List<Cliente> PersquisarPorNome(string nome)
+        List<Fornecedor> PersquisarPorNome(string nome)
         {
             // LINQ
             // Exemplos para consulta de LINQs:
@@ -65,12 +60,12 @@ namespace Controllers
 
             ModelosContainer contexto = new ModelosContainer();
 
-            //  var lista = from c in contexto.Clientes
-            //  select c;
+            //  var lista = from f in contexto.Fornecedor
+            //  select f;
 
-            var lista = from c in contexto.Clientes
-                        where c.Nome == nome
-                        select c;
+            var lista = from f in contexto.Fornecedores
+                        where f.Nome == nome
+                        select f;
 
             return lista.ToList();
         }

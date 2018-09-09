@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="ClienteController.cs" />
+    <Compile Include="FornecedorController.cs" />
+    <Compile Include="ProdutoController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
