@@ -9,7 +9,7 @@
     <Grid>
         <TextBlock x:Name="labelNome" Margin="82,125,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"/>
         <TextBox x:Name="campoNome" HorizontalAlignment="Left" Height="23" Margin="163,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="208,296,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnCadastrarCliente" Content="Cadastrar" HorizontalAlignment="Left" Margin="208,296,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock x:Name="labelTelefone" HorizontalAlignment="Left" Margin="82,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" TextAlignment="Right"><Run Text="Telefone"/><Run Text=":"/></TextBlock>
         <TextBox x:Name="campoTelefone" HorizontalAlignment="Left" Height="23" Margin="163,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="labelBairro" HorizontalAlignment="Left" Margin="82,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" TextAlignment="Right"><Run Text="Bairro"/><Run Text=":"/></TextBlock>
