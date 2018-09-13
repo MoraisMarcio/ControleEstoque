@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="btnClientes" Content="Clientes" HorizontalAlignment="Left" Margin="98,54,0,0" VerticalAlignment="Top" Width="92" Height="57" Click="btnClientes_Click"/>
+        <Button x:Name="btnProdutos" Content="Produtos" HorizontalAlignment="Left" Margin="218,54,0,0" VerticalAlignment="Top" Width="92" Height="57" Click="btnProdutos_Click"/>
 
     </Grid>
 </Window>

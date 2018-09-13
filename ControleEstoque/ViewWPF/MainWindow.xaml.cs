@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewWPF.Clientes;
+using ViewWPF.Produtos;
 
 namespace ViewWPF
 {
@@ -24,6 +25,12 @@ namespace ViewWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnProdutos_Click(object sender, RoutedEventArgs e)
+        {
+            TelaProdutosMenu minhaTelaProdutosMenu = new TelaProdutosMenu();
+            minhaTelaProdutosMenu.Show();
         }
 
         private void btnClientes_Click(object sender, RoutedEventArgs e)

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewWPF.ViewModels;
 
 namespace ViewWPF.Produtos
 {
@@ -22,6 +23,12 @@ namespace ViewWPF.Produtos
         public TelaProdutosMenu()
         {
             InitializeComponent();
+            DataContext = new TelaProdutoMenuViewModel();
+        }
+
+        private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as TelaProdutoMenuViewModel).SalvarProduto();
         }
     }
 }
