@@ -23,12 +23,12 @@ namespace ViewWPF.Produtos
         public TelaProdutosMenu()
         {
             InitializeComponent();
-            DataContext = new TelaProdutoMenuViewModel();
+            DataContext = new TelaProdutosMenuViewModel();
         }
 
         private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as TelaProdutoMenuViewModel).SalvarProduto();
+            (DataContext as TelaProdutosMenuViewModel).SalvarProduto();
         }
     }
 }

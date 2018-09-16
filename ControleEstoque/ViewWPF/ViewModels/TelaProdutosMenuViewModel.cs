@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ViewWPF.ViewModels
 {
-    public class TelaProdutoMenuViewModel : INotifyPropertyChanged
+    public class TelaProdutosMenuViewModel : INotifyPropertyChanged
     {
         private int id;
 
@@ -83,7 +83,7 @@ namespace ViewWPF.ViewModels
             }
         }
      
-        public int EstoqueId { get; set; }
+       // public int EstoqueId { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

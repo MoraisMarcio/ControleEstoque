@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewWPF.ViewModels;
 
 namespace ViewWPF.Clientes
 {
@@ -22,8 +23,12 @@ namespace ViewWPF.Clientes
         public TelaClientesMenu()
         {
             InitializeComponent();
+            DataContext = new TelaClientesMenuViewModel();
         }
 
-        
+        private void btnCadastrarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as TelaClientesMenuViewModel).SalvarCliente();
+        }
     }
 }

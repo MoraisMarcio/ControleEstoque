@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace Controllers
 {
-    class ClienteController
+    public class ClienteController
     {
-        void Inserir(Cliente c)
+        public void Inserir(Cliente c)
         {
             ModelosContainer contexto = new ModelosContainer();
             contexto.Clientes.Add(c);
             contexto.SaveChanges();
         }
 
-        List<Cliente> ListarTodosClientes()
+        public List<Cliente> ListarTodosClientes()
         {
             ModelosContainer contexto = new ModelosContainer();
             return contexto.Clientes.ToList();
         }
 
-        Cliente BuscarPorId(int id)
+        public Cliente BuscarPorId(int id)
         {
             ModelosContainer contexto = new ModelosContainer();
             return contexto.Clientes.Find(id);
         }
 
-        void Excluir(int id)
+        public void Excluir(int id)
         {
             Cliente thisExcluir = BuscarPorId(id);
 
@@ -40,7 +40,7 @@ namespace Controllers
             }
         }
 
-        void Editar(int id, Cliente dadosNovos)
+        public void Editar(int id, Cliente dadosNovos)
         {
             Cliente dadosAntigos = BuscarPorId(id);
             if (dadosAntigos != null)
@@ -57,7 +57,7 @@ namespace Controllers
             }
         }
 
-        List<Cliente> PersquisarPorNome(string nome)
+        public List<Cliente> PersquisarPorNome(string nome)
         {
             // LINQ
             // Exemplos para consulta de LINQs:
