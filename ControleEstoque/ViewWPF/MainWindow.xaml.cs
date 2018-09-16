@@ -38,5 +38,11 @@ namespace ViewWPF
             TelaClientesMenu minhaTelaClientesMenu = new TelaClientesMenu();
             minhaTelaClientesMenu.Show();
         }
+
+        private void btnFornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            TelaFornecedoresMenu minhaTelaFornecedoresMenu = new TelaFornecedoresMenu();
+            minhaTelaFornecedoresMenu.Show();
+        }
     }
 }

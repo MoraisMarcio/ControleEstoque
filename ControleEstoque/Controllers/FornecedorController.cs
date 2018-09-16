@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace Controllers
 {
-    class FornecedorController
+    public class FornecedorController
     {
-        void Inserir(Fornecedor f)
+        public void Inserir(Fornecedor f)
         {
             ModelosContainer contexto = new ModelosContainer();
             contexto.Fornecedores.Add(f);
             contexto.SaveChanges();
         }
 
-        List<Fornecedor> ListarTodosFornecedores()
+        public List<Fornecedor> ListarTodosFornecedores()
         {
             ModelosContainer contexto = new ModelosContainer();
             return contexto.Fornecedores.ToList();
         }
 
-        Fornecedor BuscarPorId(int id)
+        public Fornecedor BuscarPorId(int id)
         {
             ModelosContainer contexto = new ModelosContainer();
             return contexto.Fornecedores.Find(id);
         }
 
-        void Excluir(int id)
+        public void Excluir(int id)
         {
             Fornecedor thisExcluir = BuscarPorId(id);
 
@@ -40,7 +40,7 @@ namespace Controllers
             }
         }
 
-        void Editar(int id, Fornecedor dadosNovos)
+        public void Editar(int id, Fornecedor dadosNovos)
         {
             Fornecedor dadosAntigos = BuscarPorId(id);
             if (dadosAntigos != null)
@@ -52,7 +52,7 @@ namespace Controllers
             }
         }
 
-        List<Fornecedor> PersquisarPorNome(string nome)
+        public List<Fornecedor> PersquisarPorNome(string nome)
         {
             // LINQ
             // Exemplos para consulta de LINQs:
