@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ViewWPF.ViewModels;
 
-namespace ViewWPF
+namespace ViewWPF.Fornecedores
 {
     /// <summary>
     /// Lógica interna para TelaFornecedoresMenu.xaml
@@ -26,7 +26,7 @@ namespace ViewWPF
             DataContext = new TelaFornecedoresMenuViewModel();
         }
 
-        private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
+        private void btnCadastrarFornecedor_Click(object sender, RoutedEventArgs e)
         {
             (DataContext as TelaFornecedoresMenuViewModel).SalvarFornecedor();
         }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewWPF.Clientes;
+using ViewWPF.Fornecedores;
 using ViewWPF.Produtos;
 
 namespace ViewWPF
