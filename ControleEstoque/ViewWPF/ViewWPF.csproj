@@ -64,6 +64,9 @@
     <Compile Include="Fornecedores\TelaFornecedoresMenu.xaml.cs">
       <DependentUpon>TelaFornecedoresMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vendas\TelaVendasMenu.xaml.cs">
+      <DependentUpon>TelaVendasMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\TelaClientesMenuViewModel.cs" />
     <Compile Include="ViewModels\TelaFornecedoresMenuViewModel.cs" />
     <Compile Include="ViewModels\TelaProdutosMenuViewModel.cs" />
@@ -93,6 +96,10 @@
     <Page Include="Produtos\TelaProdutosMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vendas\TelaVendasMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

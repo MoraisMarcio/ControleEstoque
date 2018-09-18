@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnClientes" Content="Clientes" HorizontalAlignment="Left" Margin="98,54,0,0" VerticalAlignment="Top" Width="92" Height="57" Click="btnClientes_Click"/>
-        <Button x:Name="btnProdutos" Content="Produtos" HorizontalAlignment="Left" Margin="219,54,0,0" VerticalAlignment="Top" Width="92" Height="57" Click="btnProdutos_Click"/>
-        <Button x:Name="btnFornecedores" Content="Fornecedores" HorizontalAlignment="Left" Margin="98,133,0,0" VerticalAlignment="Top" Width="92" Height="57" Click="btnFornecedores_Click"/>
+        <Button x:Name="btnClientes" Content="Clientes" HorizontalAlignment="Left" Margin="185,90,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnClientes_Click" FontSize="20"/>
+        <Button x:Name="btnProdutos" Content="Produtos" HorizontalAlignment="Left" Margin="376,90,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnProdutos_Click" FontSize="20"/>
+        <Button x:Name="btnFornecedores" Content="Fornecedores" HorizontalAlignment="Left" Margin="185,231,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnFornecedores_Click" FontSize="20"/>
+        <Button x:Name="btnFornecedores_Copy" Content="Vendas" HorizontalAlignment="Left" Margin="376,231,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnVendas_Click" FontSize="20"/>
 
     </Grid>
 </Window>

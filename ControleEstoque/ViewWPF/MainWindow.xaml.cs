@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ViewWPF.Clientes;
 using ViewWPF.Fornecedores;
 using ViewWPF.Produtos;
+using ViewWPF.Vendas;
 
 namespace ViewWPF
 {
@@ -44,6 +45,12 @@ namespace ViewWPF
         {
             TelaFornecedoresMenu minhaTelaFornecedoresMenu = new TelaFornecedoresMenu();
             minhaTelaFornecedoresMenu.Show();
+        }
+
+        private void btnVendas_Click(object sender, RoutedEventArgs e)
+        {
+            TelaVendasMenu minhaTelaVendasMenu = new TelaVendasMenu();
+            minhaTelaVendasMenu.Show();
         }
     }
 }
