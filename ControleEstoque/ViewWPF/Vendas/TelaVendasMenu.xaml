@@ -7,11 +7,21 @@
         mc:Ignorable="d"
         Title="TelaVendasMenu" Height="450" Width="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="46,45,0,0" TextWrapping="Wrap" Text="Novo Pedido" VerticalAlignment="Top" Width="129" Height="28" FontSize="22"/>
-        <TextBlock x:Name="labelCliente" Margin="180,57,0,0" TextWrapping="Wrap" Text="Cliente:" VerticalAlignment="Top" Width="48" HorizontalAlignment="Left" TextAlignment="Right" Height="16"/>
-        <TextBlock x:Name="labelProduto" Margin="6,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"><Run Text="Produto"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name="campoProduto" HorizontalAlignment="Left" Height="23" Margin="87,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Cliente}"/>
-        <ComboBox x:Name="comboCliente" HorizontalAlignment="Left" Margin="233,51,0,0" VerticalAlignment="Top" Width="150"/>
+        <TextBlock HorizontalAlignment="Left" Margin="16,45,0,0" TextWrapping="Wrap" Text="Novo Pedido" VerticalAlignment="Top" Width="129" Height="28" FontSize="22"/>
+        <TextBlock x:Name="labelCliente" Margin="150,57,0,0" TextWrapping="Wrap" Text="Cliente:" VerticalAlignment="Top" Width="48" HorizontalAlignment="Left" TextAlignment="Right" Height="16"/>
+        <TextBlock x:Name="labelProduto" Margin="122,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"><Run Text="Produto"/><Run Text=":"/></TextBlock>
+        <ComboBox x:Name="comboCliente" HorizontalAlignment="Left" Margin="203,51,0,0" VerticalAlignment="Top" Width="150"/>
+        <ComboBox x:Name="comboProduto" HorizontalAlignment="Left" Margin="203,121,0,0" VerticalAlignment="Top" Width="150"/>
+        <TextBlock x:Name="labelQuantidade" Margin="126,155,0,0" TextWrapping="Wrap" Text="Quantidade:" VerticalAlignment="Top" Width="72" HorizontalAlignment="Left" TextAlignment="Right"/>
+        <TextBox x:Name="campoQuantidade" HorizontalAlignment="Left" Height="23" Margin="203,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <TextBlock x:Name="labelPreco" Margin="126,183,0,0" TextWrapping="Wrap" Text="Preço:" VerticalAlignment="Top" Width="72" HorizontalAlignment="Left" TextAlignment="Right"/>
+        <TextBox x:Name="campoPreco" HorizontalAlignment="Left" Height="23" Margin="203,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" />
+        <TextBlock x:Name="labelTotal" Margin="152,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" HorizontalAlignment="Left" TextAlignment="Right" FontSize="18" Height="27" FontWeight="Bold"><Run Text="Total"/><Run Text=":"/><Run Text=" R$"/></TextBlock>
+        <TextBlock x:Name="labelValorVenda" Margin="239,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" HorizontalAlignment="Left" FontSize="20" Height="27" FontWeight="Bold"><Run Text="999"/><Run Text="9999"/><Run Text=",00"/><LineBreak/><Run/></TextBlock>
+        <ListBox HorizontalAlignment="Left" Height="320" Margin="433,51,0,0" VerticalAlignment="Top" Width="349"/>
+        <DatePicker HorizontalAlignment="Left" Margin="203,22,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="btnRegistrarVenda" Content="Registrar" HorizontalAlignment="Left" Margin="278,204,0,0" VerticalAlignment="Top" Width="75" Click="btnRegistrarVenda_Click"/>
+        <Button x:Name="btnConcluirVenda" Content="Concluir Venda" HorizontalAlignment="Left" Margin="256,369,0,0" VerticalAlignment="Top" Width="97" Click="btnConcluirVenda_Click"/>
 
     </Grid>
 </Window>

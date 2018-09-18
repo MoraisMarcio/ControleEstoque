@@ -23,5 +23,15 @@ namespace ViewWPF.Vendas
         {
             InitializeComponent();
         }
+
+        private void btnConcluirVenda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegistrarVenda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
