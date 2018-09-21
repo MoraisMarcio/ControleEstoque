@@ -24,5 +24,11 @@ namespace ViewWPF
             TelaClientes minhaTelaClientes = new TelaClientes();
             minhaTelaClientes.Show();
         }
+
+        private void btnFornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            TelaFornecedores minhaTelaFornecedores = new TelaFornecedores();
+            minhaTelaFornecedores.Show();
+        }
     }
 }

@@ -67,7 +67,6 @@ namespace ViewWPF.ViewModels
             c.Telefone = Telefone;
             c.Endereco = Endereco;
             
-
             ClienteController clienteController = new ClienteController();
             clienteController.Inserir(c);
         }

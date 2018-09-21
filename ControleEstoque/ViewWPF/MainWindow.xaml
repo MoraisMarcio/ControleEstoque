@@ -10,8 +10,8 @@
         
         <Button x:Name="btnClientes" Content="Clientes" HorizontalAlignment="Left" Margin="185,90,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnClientes_Click" FontSize="20"/>
         <Button x:Name="btnProdutos" Content="Produtos" HorizontalAlignment="Left" Margin="376,90,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnProdutos_Click" FontSize="20"/>
-        <!--<Button x:Name="btnFornecedores" Content="Fornecedores" HorizontalAlignment="Left" Margin="185,231,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnFornecedores_Click" FontSize="20"/>
-        <Button x:Name="btnFornecedores_Copy" Content="Vendas" HorizontalAlignment="Left" Margin="376,231,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnVendas_Click" FontSize="20"/>-->
+        <Button x:Name="btnFornecedores" Content="Fornecedores" HorizontalAlignment="Left" Margin="185,231,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnFornecedores_Click" FontSize="20"/>
+        <!--<Button x:Name="btnVendas" Content="Vendas" HorizontalAlignment="Left" Margin="376,231,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnVendas_Click" FontSize="20"/>-->
 
     </Grid>
 </Window>
