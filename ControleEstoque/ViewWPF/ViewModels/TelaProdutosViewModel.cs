@@ -93,6 +93,7 @@ namespace ViewWPF.ViewModels
             p.PrecoCusto = PrecoCusto;
             p.Cod = Cod;
             p.Estoque = Estoque;
+
             i.ProdutoId = Id;
             i.Estoque = Estoque;
             i.InventarioId = 1;
