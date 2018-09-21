@@ -61,20 +61,21 @@ namespace ViewWPF.ViewModels
         
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void Consultar()
+        public List<ItemInventario> Consultar()
         {
-            // Instanciando produto
-            Produto p = new Produto();
-            ItemInventario i = new ItemInventario();
-
-            // Preenchendo os dados a serem salvos
-            
-            i.ProdutoId = Id;
-            i.Estoque = Estoque;
-            i.InventarioId = 1;
-
             InventarioController inventarioController = new InventarioController();
-            inventarioController.ConsultarInventario();
+
+            List<ItemInventario> lista = new List<ItemInventario>();
+            lista = inventarioController.ConsultarInventario();
+
+            return lista;
+
+            //ItemInventario i = new ItemInventario();
+
+            //i.ProdutoId = Id;
+            //i.Estoque = Estoque;
+            //i.InventarioId = 1;
+            //lista.Add(i); 
         }
     }
 }

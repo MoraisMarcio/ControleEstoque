@@ -1,5 +1,8 @@
 ﻿using Controllers;
+using Modelos;
+using System.Collections.Generic;
 using System.Windows;
+using ViewWPF.ViewModels;
 
 namespace ViewWPF.Views
 {
@@ -11,12 +14,15 @@ namespace ViewWPF.Views
         public TelaInventario()
         {
             InitializeComponent();
+            DataContext = new TelaProdutosViewModel();
         }
 
         private void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            InventarioController inventarioController = new InventarioController();
-            inventarioController.ConsultarInventario();
+            List<ItemInventario> listaInventario = new List<ItemInventario>();
+            listaInventario = (DataContext as TelaInventarioViewModel).Consultar();
+            ListInventario.Items.Add(listaInventario);                               
+                       
         }
     }
 }
