@@ -6,10 +6,11 @@ namespace Controllers
 {
     public class ProdutoController
     {
-        public void Inserir(Produto p)
+        public void Inserir(Produto p, ItemInventario i)
         {
             ModelosContainer contexto = new ModelosContainer();
             contexto.Produtos.Add(p);
+            contexto.ItemInventarios.Add(i);
             contexto.SaveChanges();
         }
 

@@ -8,7 +8,7 @@
         Title="TelaFornecedores" Height="450" Width="800">
     <Grid>
         
-        <TextBlock HorizontalAlignment="Left" Margin="78,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="28" FontSize="22"><Run Text="Cadastro de "/><Run Text="Fornecedores"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="78,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="28" FontSize="22"><Run Text="Cadastro de Fornecedores"/></TextBlock>
 
         <TextBlock x:Name="labelNome" Margin="82,125,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"/>
         <TextBox x:Name="campoNome" HorizontalAlignment="Left" Height="23" Margin="163,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Nome}"/>

@@ -70,6 +70,9 @@
     <Compile Include="Views\TelaFornecedores.xaml.cs">
       <DependentUpon>TelaFornecedores.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TelaInventario.xaml.cs">
+      <DependentUpon>TelaInventario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TelaProdutos.xaml.cs">
       <DependentUpon>TelaProdutos.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TelaFornecedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TelaInventario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

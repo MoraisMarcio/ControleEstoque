@@ -84,6 +84,7 @@ namespace ViewWPF.ViewModels
         {
             // Instanciando produto
             Produto p = new Produto();
+            ItemInventario i = new ItemInventario();
 
             // Preenchendo os dados a serem salvos
             p.Id = Id;
@@ -92,9 +93,12 @@ namespace ViewWPF.ViewModels
             p.PrecoCusto = PrecoCusto;
             p.Cod = Cod;
             p.Estoque = Estoque;
+            i.ProdutoId = Id;
+            i.Estoque = Estoque;
+            i.InventarioId = 1;
 
             ProdutoController prodController = new ProdutoController();
-            prodController.Inserir(p);
+            prodController.Inserir(p, i);
         }
     }
 }
