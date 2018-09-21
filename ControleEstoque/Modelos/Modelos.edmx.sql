@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/21/2018 11:01:48
+-- Date Created: 09/21/2018 14:09:46
 -- Generated from EDMX file: C:\Users\Controladoria\Desktop\MÁRCIO\PROJETOS\ControleEstoque\ControleEstoque\Modelos\Modelos.edmx
 -- --------------------------------------------------
 
@@ -95,7 +95,8 @@ GO
 
 -- Creating table 'Inventarios'
 CREATE TABLE [dbo].[Inventarios] (
-    [Id] int IDENTITY(1,1) NOT NULL
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Nome] nvarchar(max)  NOT NULL
 );
 GO
 

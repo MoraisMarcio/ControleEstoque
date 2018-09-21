@@ -67,6 +67,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Fornecedores">
     <Key>
@@ -321,6 +322,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="ItemInventario" Relationship="Modelos.InventarioItemInventario" FromRole="Inventario" ToRole="ItemInventario" />
+          <Property Name="Nome" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Fornecedor">
           <Key>
@@ -543,6 +545,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(Modelos.Inventario)">
         <MappingFragment StoreEntitySet="Inventarios">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
