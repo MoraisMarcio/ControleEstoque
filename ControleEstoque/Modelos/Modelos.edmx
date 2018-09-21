@@ -7,6 +7,51 @@
     <Schema Namespace="Modelos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ModelosStoreContainer">
     <EntitySet Name="Clientes" EntityType="Modelos.Store.Clientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Inventarios" EntityType="Modelos.Store.Inventarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Fornecedores" EntityType="Modelos.Store.Fornecedores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemInventarios" EntityType="Modelos.Store.ItemInventarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Produtos" EntityType="Modelos.Store.Produtos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemNotaEntradas" EntityType="Modelos.Store.ItemNotaEntradas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NotaEntradas" EntityType="Modelos.Store.NotaEntradas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemNotaSaidas" EntityType="Modelos.Store.ItemNotaSaidas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NotaSaidas" EntityType="Modelos.Store.NotaSaidas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Recebimentos" EntityType="Modelos.Store.Recebimentos" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="InventarioItemInventario" Association="Modelos.Store.InventarioItemInventario">
+      <End Role="Inventario" EntitySet="Inventarios" />
+      <End Role="ItemInventario" EntitySet="ItemInventarios" />
+    </AssociationSet>
+    <AssociationSet Name="ProdutoItemInventario" Association="Modelos.Store.ProdutoItemInventario">
+      <End Role="Produto" EntitySet="Produtos" />
+      <End Role="ItemInventario" EntitySet="ItemInventarios" />
+    </AssociationSet>
+    <AssociationSet Name="ProdutoItemNotaEntrada" Association="Modelos.Store.ProdutoItemNotaEntrada">
+      <End Role="Produto" EntitySet="Produtos" />
+      <End Role="ItemNotaEntrada" EntitySet="ItemNotaEntradas" />
+    </AssociationSet>
+    <AssociationSet Name="NotaEntradaItemNotaEntrada" Association="Modelos.Store.NotaEntradaItemNotaEntrada">
+      <End Role="NotaEntrada" EntitySet="NotaEntradas" />
+      <End Role="ItemNotaEntrada" EntitySet="ItemNotaEntradas" />
+    </AssociationSet>
+    <AssociationSet Name="FornecedorNotaEntrada" Association="Modelos.Store.FornecedorNotaEntrada">
+      <End Role="Fornecedor" EntitySet="Fornecedores" />
+      <End Role="NotaEntrada" EntitySet="NotaEntradas" />
+    </AssociationSet>
+    <AssociationSet Name="ProdutoItemNotaSaida" Association="Modelos.Store.ProdutoItemNotaSaida">
+      <End Role="Produto" EntitySet="Produtos" />
+      <End Role="ItemNotaSaida" EntitySet="ItemNotaSaidas" />
+    </AssociationSet>
+    <AssociationSet Name="NotaSaidaItemNotaSaida" Association="Modelos.Store.NotaSaidaItemNotaSaida">
+      <End Role="NotaSaida" EntitySet="NotaSaidas" />
+      <End Role="ItemNotaSaida" EntitySet="ItemNotaSaidas" />
+    </AssociationSet>
+    <AssociationSet Name="ClienteNotaSaida" Association="Modelos.Store.ClienteNotaSaida">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="NotaSaida" EntitySet="NotaSaidas" />
+    </AssociationSet>
+    <AssociationSet Name="NotaSaidaRecebimento" Association="Modelos.Store.NotaSaidaRecebimento">
+      <End Role="NotaSaida" EntitySet="NotaSaidas" />
+      <End Role="Recebimento" EntitySet="Recebimentos" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Clientes">
     <Key>
@@ -15,7 +60,199 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Telefone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Endereco" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="Inventarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fornecedores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemInventarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estoque" Type="int" Nullable="false" />
+    <Property Name="InventarioId" Type="int" Nullable="false" />
+    <Property Name="ProdutoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Produtos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrecoCusto" Type="decimal" Nullable="false" />
+    <Property Name="Estoque" Type="int" Nullable="false" />
+    <Property Name="Cod" Type="int" Nullable="false" />
+    <Property Name="UN" Type="nvarchar" Nullable="false" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="ItemNotaEntradas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantidade" Type="float" Nullable="false" />
+    <Property Name="ValorUnitario" Type="decimal" Nullable="false" />
+    <Property Name="ProdutoId" Type="int" Nullable="false" />
+    <Property Name="NotaEntradaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotaEntradas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="DataEntrada" Type="datetime" Nullable="false" />
+    <Property Name="DataEmissao" Type="datetime" Nullable="false" />
+    <Property Name="ValorTotal" Type="decimal" Nullable="false" />
+    <Property Name="FornecedorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemNotaSaidas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantidade" Type="float" Nullable="false" />
+    <Property Name="ValorUnitario" Type="decimal" Nullable="false" />
+    <Property Name="ProdutoId" Type="int" Nullable="false" />
+    <Property Name="NotaSaidaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotaSaidas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataVenda" Type="datetime" Nullable="false" />
+    <Property Name="ValorTotal" Type="decimal" Nullable="false" />
+    <Property Name="TipoPagamento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClienteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recebimentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataVendimento" Type="datetime" Nullable="false" />
+    <Property Name="Valor" Type="decimal" Nullable="false" />
+    <Property Name="NotaSaidaId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="InventarioItemInventario">
+    <End Role="Inventario" Type="Modelos.Store.Inventarios" Multiplicity="1" />
+    <End Role="ItemInventario" Type="Modelos.Store.ItemInventarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemInventario">
+        <PropertyRef Name="InventarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdutoItemInventario">
+    <End Role="Produto" Type="Modelos.Store.Produtos" Multiplicity="1" />
+    <End Role="ItemInventario" Type="Modelos.Store.ItemInventarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemInventario">
+        <PropertyRef Name="ProdutoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdutoItemNotaEntrada">
+    <End Role="Produto" Type="Modelos.Store.Produtos" Multiplicity="1" />
+    <End Role="ItemNotaEntrada" Type="Modelos.Store.ItemNotaEntradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemNotaEntrada">
+        <PropertyRef Name="ProdutoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NotaEntradaItemNotaEntrada">
+    <End Role="NotaEntrada" Type="Modelos.Store.NotaEntradas" Multiplicity="1" />
+    <End Role="ItemNotaEntrada" Type="Modelos.Store.ItemNotaEntradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotaEntrada">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemNotaEntrada">
+        <PropertyRef Name="NotaEntradaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FornecedorNotaEntrada">
+    <End Role="Fornecedor" Type="Modelos.Store.Fornecedores" Multiplicity="1" />
+    <End Role="NotaEntrada" Type="Modelos.Store.NotaEntradas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fornecedor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NotaEntrada">
+        <PropertyRef Name="FornecedorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProdutoItemNotaSaida">
+    <End Role="Produto" Type="Modelos.Store.Produtos" Multiplicity="1" />
+    <End Role="ItemNotaSaida" Type="Modelos.Store.ItemNotaSaidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemNotaSaida">
+        <PropertyRef Name="ProdutoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NotaSaidaItemNotaSaida">
+    <End Role="NotaSaida" Type="Modelos.Store.NotaSaidas" Multiplicity="1" />
+    <End Role="ItemNotaSaida" Type="Modelos.Store.ItemNotaSaidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotaSaida">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemNotaSaida">
+        <PropertyRef Name="NotaSaidaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClienteNotaSaida">
+    <End Role="Cliente" Type="Modelos.Store.Clientes" Multiplicity="1" />
+    <End Role="NotaSaida" Type="Modelos.Store.NotaSaidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NotaSaida">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NotaSaidaRecebimento">
+    <End Role="NotaSaida" Type="Modelos.Store.NotaSaidas" Multiplicity="1" />
+    <End Role="Recebimento" Type="Modelos.Store.Recebimentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotaSaida">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recebimento">
+        <PropertyRef Name="NotaSaidaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -298,6 +535,99 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventarios">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Inventario)">
+        <MappingFragment StoreEntitySet="Inventarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fornecedores">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Fornecedor)">
+        <MappingFragment StoreEntitySet="Fornecedores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemInventarios">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.ItemInventario)">
+        <MappingFragment StoreEntitySet="ItemInventarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Estoque" ColumnName="Estoque" />
+          <ScalarProperty Name="InventarioId" ColumnName="InventarioId" />
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produtos">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Produto)">
+        <MappingFragment StoreEntitySet="Produtos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="PrecoCusto" ColumnName="PrecoCusto" />
+          <ScalarProperty Name="Estoque" ColumnName="Estoque" />
+          <ScalarProperty Name="Cod" ColumnName="Cod" />
+          <ScalarProperty Name="UN" ColumnName="UN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemNotaEntradas">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.ItemNotaEntrada)">
+        <MappingFragment StoreEntitySet="ItemNotaEntradas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+          <ScalarProperty Name="NotaEntradaId" ColumnName="NotaEntradaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotaEntradas">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.NotaEntrada)">
+        <MappingFragment StoreEntitySet="NotaEntradas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="DataEntrada" ColumnName="DataEntrada" />
+          <ScalarProperty Name="DataEmissao" ColumnName="DataEmissao" />
+          <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+          <ScalarProperty Name="FornecedorId" ColumnName="FornecedorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemNotaSaidas">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.ItemNotaSaida)">
+        <MappingFragment StoreEntitySet="ItemNotaSaidas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+          <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+          <ScalarProperty Name="NotaSaidaId" ColumnName="NotaSaidaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotaSaidas">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.NotaSaida)">
+        <MappingFragment StoreEntitySet="NotaSaidas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataVenda" ColumnName="DataVenda" />
+          <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+          <ScalarProperty Name="TipoPagamento" ColumnName="TipoPagamento" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recebimentos">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelos.Recebimento)">
+        <MappingFragment StoreEntitySet="Recebimentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataVendimento" ColumnName="DataVendimento" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="NotaSaidaId" ColumnName="NotaSaidaId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
