@@ -61,7 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\TelaClientesViewModel.cs" />
     <Compile Include="ViewModels\TelaProdutosViewModel.cs" />
+    <Compile Include="Views\TelaClientes.xaml.cs">
+      <DependentUpon>TelaClientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TelaProdutos.xaml.cs">
       <DependentUpon>TelaProdutos.xaml</DependentUpon>
     </Compile>
@@ -77,6 +81,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\TelaClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TelaProdutos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/20/2018 22:51:06
--- Generated from EDMX file: D:\Programacao\Projetos\ControleEstoque\ControleEstoque\Modelos\Modelos.edmx
+-- Date Created: 09/21/2018 11:01:48
+-- Generated from EDMX file: C:\Users\Controladoria\Desktop\MÁRCIO\PROJETOS\ControleEstoque\ControleEstoque\Modelos\Modelos.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,6 +17,33 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_InventarioItemInventario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemInventarios] DROP CONSTRAINT [FK_InventarioItemInventario];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdutoItemInventario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemInventarios] DROP CONSTRAINT [FK_ProdutoItemInventario];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdutoItemNotaEntrada]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemNotaEntradas] DROP CONSTRAINT [FK_ProdutoItemNotaEntrada];
+GO
+IF OBJECT_ID(N'[dbo].[FK_NotaEntradaItemNotaEntrada]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemNotaEntradas] DROP CONSTRAINT [FK_NotaEntradaItemNotaEntrada];
+GO
+IF OBJECT_ID(N'[dbo].[FK_FornecedorNotaEntrada]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[NotaEntradas] DROP CONSTRAINT [FK_FornecedorNotaEntrada];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdutoItemNotaSaida]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemNotaSaidas] DROP CONSTRAINT [FK_ProdutoItemNotaSaida];
+GO
+IF OBJECT_ID(N'[dbo].[FK_NotaSaidaItemNotaSaida]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ItemNotaSaidas] DROP CONSTRAINT [FK_NotaSaidaItemNotaSaida];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ClienteNotaSaida]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[NotaSaidas] DROP CONSTRAINT [FK_ClienteNotaSaida];
+GO
+IF OBJECT_ID(N'[dbo].[FK_NotaSaidaRecebimento]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Recebimentos] DROP CONSTRAINT [FK_NotaSaidaRecebimento];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -24,6 +51,33 @@ GO
 
 IF OBJECT_ID(N'[dbo].[Clientes]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Clientes];
+GO
+IF OBJECT_ID(N'[dbo].[Inventarios]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Inventarios];
+GO
+IF OBJECT_ID(N'[dbo].[Fornecedores]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Fornecedores];
+GO
+IF OBJECT_ID(N'[dbo].[ItemInventarios]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ItemInventarios];
+GO
+IF OBJECT_ID(N'[dbo].[Produtos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Produtos];
+GO
+IF OBJECT_ID(N'[dbo].[ItemNotaEntradas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ItemNotaEntradas];
+GO
+IF OBJECT_ID(N'[dbo].[NotaEntradas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[NotaEntradas];
+GO
+IF OBJECT_ID(N'[dbo].[ItemNotaSaidas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ItemNotaSaidas];
+GO
+IF OBJECT_ID(N'[dbo].[NotaSaidas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[NotaSaidas];
+GO
+IF OBJECT_ID(N'[dbo].[Recebimentos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Recebimentos];
 GO
 
 -- --------------------------------------------------
