@@ -12,20 +12,23 @@ namespace Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class Cliente
+    public partial class NotaEntrada
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cliente()
+        public NotaEntrada()
         {
-            this.NotaSaida = new HashSet<NotaSaida>();
+            this.ItemNotaEntrada = new HashSet<ItemNotaEntrada>();
         }
     
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Telefone { get; set; }
-        public string Endereco { get; set; }
+        public int Numero { get; set; }
+        public System.DateTime DataEntrada { get; set; }
+        public System.DateTime DataEmissao { get; set; }
+        public decimal ValorTotal { get; set; }
+        public int FornecedorId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NotaSaida> NotaSaida { get; set; }
+        public virtual ICollection<ItemNotaEntrada> ItemNotaEntrada { get; set; }
+        public virtual Fornecedor Fornecedor { get; set; }
     }
 }

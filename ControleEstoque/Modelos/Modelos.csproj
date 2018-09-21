@@ -52,6 +52,21 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>Modelos.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemInventario.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemNotaEntrada.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemNotaSaida.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,7 +82,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelos.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NotaEntrada.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotaSaida.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produto.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recebimento.cs">
+      <DependentUpon>Modelos.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

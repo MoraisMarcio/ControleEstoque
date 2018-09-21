@@ -22,6 +22,51 @@
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Modelos" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="ModelosContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clientes" EntityType="Modelos.Cliente" />
+          <EntitySet Name="Inventarios" EntityType="Modelos.Inventario" />
+          <EntitySet Name="Fornecedores" EntityType="Modelos.Fornecedor" />
+          <EntitySet Name="ItemInventarios" EntityType="Modelos.ItemInventario" />
+          <AssociationSet Name="InventarioItemInventario" Association="Modelos.InventarioItemInventario">
+            <End Role="Inventario" EntitySet="Inventarios" />
+            <End Role="ItemInventario" EntitySet="ItemInventarios" />
+          </AssociationSet>
+          <EntitySet Name="Produtos" EntityType="Modelos.Produto" />
+          <AssociationSet Name="ProdutoItemInventario" Association="Modelos.ProdutoItemInventario">
+            <End Role="Produto" EntitySet="Produtos" />
+            <End Role="ItemInventario" EntitySet="ItemInventarios" />
+          </AssociationSet>
+          <EntitySet Name="ItemNotaEntradas" EntityType="Modelos.ItemNotaEntrada" />
+          <AssociationSet Name="ProdutoItemNotaEntrada" Association="Modelos.ProdutoItemNotaEntrada">
+            <End Role="Produto" EntitySet="Produtos" />
+            <End Role="ItemNotaEntrada" EntitySet="ItemNotaEntradas" />
+          </AssociationSet>
+          <EntitySet Name="NotaEntradas" EntityType="Modelos.NotaEntrada" />
+          <AssociationSet Name="NotaEntradaItemNotaEntrada" Association="Modelos.NotaEntradaItemNotaEntrada">
+            <End Role="NotaEntrada" EntitySet="NotaEntradas" />
+            <End Role="ItemNotaEntrada" EntitySet="ItemNotaEntradas" />
+          </AssociationSet>
+          <AssociationSet Name="FornecedorNotaEntrada" Association="Modelos.FornecedorNotaEntrada">
+            <End Role="Fornecedor" EntitySet="Fornecedores" />
+            <End Role="NotaEntrada" EntitySet="NotaEntradas" />
+          </AssociationSet>
+          <EntitySet Name="ItemNotaSaidas" EntityType="Modelos.ItemNotaSaida" />
+          <AssociationSet Name="ProdutoItemNotaSaida" Association="Modelos.ProdutoItemNotaSaida">
+            <End Role="Produto" EntitySet="Produtos" />
+            <End Role="ItemNotaSaida" EntitySet="ItemNotaSaidas" />
+          </AssociationSet>
+          <EntitySet Name="NotaSaidas" EntityType="Modelos.NotaSaida" />
+          <AssociationSet Name="NotaSaidaItemNotaSaida" Association="Modelos.NotaSaidaItemNotaSaida">
+            <End Role="NotaSaida" EntitySet="NotaSaidas" />
+            <End Role="ItemNotaSaida" EntitySet="ItemNotaSaidas" />
+          </AssociationSet>
+          <AssociationSet Name="ClienteNotaSaida" Association="Modelos.ClienteNotaSaida">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="NotaSaida" EntitySet="NotaSaidas" />
+          </AssociationSet>
+          <EntitySet Name="Recebimentos" EntityType="Modelos.Recebimento" />
+          <AssociationSet Name="NotaSaidaRecebimento" Association="Modelos.NotaSaidaRecebimento">
+            <End Role="NotaSaida" EntitySet="NotaSaidas" />
+            <End Role="Recebimento" EntitySet="Recebimentos" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Cliente">
           <Key>
@@ -30,7 +75,217 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Telefone" Type="String" Nullable="false" />
+          <Property Name="Endereco" Type="String" Nullable="false" />
+          <NavigationProperty Name="NotaSaida" Relationship="Modelos.ClienteNotaSaida" FromRole="Cliente" ToRole="NotaSaida" />
         </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ItemInventario" Relationship="Modelos.InventarioItemInventario" FromRole="Inventario" ToRole="ItemInventario" />
+        </EntityType>
+        <EntityType Name="Fornecedor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <NavigationProperty Name="NotaEntrada" Relationship="Modelos.FornecedorNotaEntrada" FromRole="Fornecedor" ToRole="NotaEntrada" />
+        </EntityType>
+        <EntityType Name="ItemInventario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estoque" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inventario" Relationship="Modelos.InventarioItemInventario" FromRole="ItemInventario" ToRole="Inventario" />
+          <Property Name="InventarioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="Modelos.ProdutoItemInventario" FromRole="ItemInventario" ToRole="Produto" />
+          <Property Name="ProdutoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="InventarioItemInventario">
+          <End Type="Modelos.Inventario" Role="Inventario" Multiplicity="1" />
+          <End Type="Modelos.ItemInventario" Role="ItemInventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemInventario">
+              <PropertyRef Name="InventarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <Property Name="PrecoCusto" Type="Decimal" Nullable="false" />
+          <Property Name="Estoque" Type="Int32" Nullable="false" />
+          <Property Name="Cod" Type="Int32" Nullable="false" />
+          <Property Name="UN" Type="String" Nullable="false" MaxLength="3" />
+          <NavigationProperty Name="ItemInventario" Relationship="Modelos.ProdutoItemInventario" FromRole="Produto" ToRole="ItemInventario" />
+          <NavigationProperty Name="ItemNotaEntrada" Relationship="Modelos.ProdutoItemNotaEntrada" FromRole="Produto" ToRole="ItemNotaEntrada" />
+          <NavigationProperty Name="ItemNotaSaida" Relationship="Modelos.ProdutoItemNotaSaida" FromRole="Produto" ToRole="ItemNotaSaida" />
+        </EntityType>
+        <Association Name="ProdutoItemInventario">
+          <End Type="Modelos.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="Modelos.ItemInventario" Role="ItemInventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemInventario">
+              <PropertyRef Name="ProdutoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ItemNotaEntrada">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantidade" Type="Double" Nullable="false" />
+          <Property Name="ValorUnitario" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="Modelos.ProdutoItemNotaEntrada" FromRole="ItemNotaEntrada" ToRole="Produto" />
+          <Property Name="ProdutoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NotaEntrada" Relationship="Modelos.NotaEntradaItemNotaEntrada" FromRole="ItemNotaEntrada" ToRole="NotaEntrada" />
+          <Property Name="NotaEntradaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ProdutoItemNotaEntrada">
+          <End Type="Modelos.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="Modelos.ItemNotaEntrada" Role="ItemNotaEntrada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemNotaEntrada">
+              <PropertyRef Name="ProdutoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NotaEntrada">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <Property Name="DataEntrada" Type="DateTime" Nullable="false" />
+          <Property Name="DataEmissao" Type="DateTime" Nullable="false" />
+          <Property Name="ValorTotal" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="ItemNotaEntrada" Relationship="Modelos.NotaEntradaItemNotaEntrada" FromRole="NotaEntrada" ToRole="ItemNotaEntrada" />
+          <NavigationProperty Name="Fornecedor" Relationship="Modelos.FornecedorNotaEntrada" FromRole="NotaEntrada" ToRole="Fornecedor" />
+          <Property Name="FornecedorId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="NotaEntradaItemNotaEntrada">
+          <End Type="Modelos.NotaEntrada" Role="NotaEntrada" Multiplicity="1" />
+          <End Type="Modelos.ItemNotaEntrada" Role="ItemNotaEntrada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotaEntrada">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemNotaEntrada">
+              <PropertyRef Name="NotaEntradaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FornecedorNotaEntrada">
+          <End Type="Modelos.Fornecedor" Role="Fornecedor" Multiplicity="1" />
+          <End Type="Modelos.NotaEntrada" Role="NotaEntrada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fornecedor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotaEntrada">
+              <PropertyRef Name="FornecedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ItemNotaSaida">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantidade" Type="Double" Nullable="false" />
+          <Property Name="ValorUnitario" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="Modelos.ProdutoItemNotaSaida" FromRole="ItemNotaSaida" ToRole="Produto" />
+          <Property Name="ProdutoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NotaSaida" Relationship="Modelos.NotaSaidaItemNotaSaida" FromRole="ItemNotaSaida" ToRole="NotaSaida" />
+          <Property Name="NotaSaidaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ProdutoItemNotaSaida">
+          <End Type="Modelos.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="Modelos.ItemNotaSaida" Role="ItemNotaSaida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemNotaSaida">
+              <PropertyRef Name="ProdutoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NotaSaida">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataVenda" Type="DateTime" Nullable="false" />
+          <Property Name="ValorTotal" Type="Decimal" Nullable="false" />
+          <Property Name="TipoPagamento" Type="String" Nullable="false" />
+          <NavigationProperty Name="ItemNotaSaida" Relationship="Modelos.NotaSaidaItemNotaSaida" FromRole="NotaSaida" ToRole="ItemNotaSaida" />
+          <NavigationProperty Name="Cliente" Relationship="Modelos.ClienteNotaSaida" FromRole="NotaSaida" ToRole="Cliente" />
+          <Property Name="ClienteId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Recebimento" Relationship="Modelos.NotaSaidaRecebimento" FromRole="NotaSaida" ToRole="Recebimento" />
+        </EntityType>
+        <Association Name="NotaSaidaItemNotaSaida">
+          <End Type="Modelos.NotaSaida" Role="NotaSaida" Multiplicity="1" />
+          <End Type="Modelos.ItemNotaSaida" Role="ItemNotaSaida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotaSaida">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemNotaSaida">
+              <PropertyRef Name="NotaSaidaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClienteNotaSaida">
+          <End Type="Modelos.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="Modelos.NotaSaida" Role="NotaSaida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotaSaida">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Recebimento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataVendimento" Type="DateTime" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="NotaSaida" Relationship="Modelos.NotaSaidaRecebimento" FromRole="Recebimento" ToRole="NotaSaida" />
+          <Property Name="NotaSaidaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="NotaSaidaRecebimento">
+          <End Type="Modelos.NotaSaida" Role="NotaSaida" Multiplicity="1" />
+          <End Type="Modelos.Recebimento" Role="Recebimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotaSaida">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recebimento">
+              <PropertyRef Name="NotaSaidaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

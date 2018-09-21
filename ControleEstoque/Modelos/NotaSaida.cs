@@ -12,20 +12,25 @@ namespace Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class Cliente
+    public partial class NotaSaida
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cliente()
+        public NotaSaida()
         {
-            this.NotaSaida = new HashSet<NotaSaida>();
+            this.ItemNotaSaida = new HashSet<ItemNotaSaida>();
+            this.Recebimento = new HashSet<Recebimento>();
         }
     
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Telefone { get; set; }
-        public string Endereco { get; set; }
+        public System.DateTime DataVenda { get; set; }
+        public decimal ValorTotal { get; set; }
+        public string TipoPagamento { get; set; }
+        public int ClienteId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NotaSaida> NotaSaida { get; set; }
+        public virtual ICollection<ItemNotaSaida> ItemNotaSaida { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Recebimento> Recebimento { get; set; }
     }
 }
