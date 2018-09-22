@@ -11,6 +11,12 @@ namespace Controllers
     public class InventarioController
     {
   
+        public void Inserir(Inventario i)
+        {
+            ModelosContainer contexto = new ModelosContainer();
+            contexto.Inventarios.Add(i);
+        }
+
         public List<ItemInventario> ConsultarInventario()
         {
             ModelosContainer contexto = new ModelosContainer();

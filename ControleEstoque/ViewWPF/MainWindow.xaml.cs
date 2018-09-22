@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Modelos;
+using System.Windows;
 using ViewWPF.Views;
 
 namespace ViewWPF
@@ -42,5 +43,6 @@ namespace ViewWPF
             TelaVendas minhaTelaVendas = new TelaVendas();
             minhaTelaVendas.Show();
         }
+       
     }
 }

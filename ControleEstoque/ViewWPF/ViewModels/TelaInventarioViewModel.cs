@@ -23,6 +23,18 @@ namespace ViewWPF.ViewModels
             }
         }
 
+        private string nome;
+
+        public string Nome
+        {
+            get { return nome; }
+            set
+            {
+                nome = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Nome"));
+            }
+        }
+
         private int estoque;
 
         public int Estoque
@@ -61,21 +73,28 @@ namespace ViewWPF.ViewModels
         
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public List<ItemInventario> Consultar()
+        public void SalvarInventario()
         {
+            Inventario i = new Inventario();
+           
+            i.Nome = Nome;
+
             InventarioController inventarioController = new InventarioController();
-
-            List<ItemInventario> lista = new List<ItemInventario>();
-            lista = inventarioController.ConsultarInventario();
-
-            return lista;
-
-            //ItemInventario i = new ItemInventario();
-
-            //i.ProdutoId = Id;
-            //i.Estoque = Estoque;
-            //i.InventarioId = 1;
-            //lista.Add(i); 
+            inventarioController.Inserir(i);
+          
         }
+
+
+        //public List<ItemInventario> Consultar()
+        //{
+        //    InventarioController inventarioController = new InventarioController();
+
+        //    List<ItemInventario> lista = new List<ItemInventario>();
+        //    lista = inventarioController.ConsultarInventario();
+
+        //    return lista;
+
+            
+        //}
     }
 }

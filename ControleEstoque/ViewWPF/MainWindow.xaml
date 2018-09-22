@@ -13,6 +13,6 @@
         <Button x:Name="btnFornecedores" Content="Fornecedores" HorizontalAlignment="Left" Margin="50,168,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnFornecedores_Click" FontSize="20"/>
         <Button x:Name="btnInventario" Content="Inventário" HorizontalAlignment="Left" Margin="241,168,0,0" VerticalAlignment="Top" Width="146" Height="101" FontSize="20" Click="btnInventario_Click"/>
         <Button x:Name="btnVendas" Content="Vendas" HorizontalAlignment="Left" Margin="50,308,0,0" VerticalAlignment="Top" Width="146" Height="101" FontSize="20" Click="btnVendas_Click"/>
-        
+
     </Grid>
 </Window>
