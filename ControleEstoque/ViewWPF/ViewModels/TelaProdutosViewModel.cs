@@ -30,15 +30,15 @@ namespace ViewWPF.ViewModels
             }
         }
 
-        private string un;
+        private string unidade;
 
-        public string UN
+        public string Unidade
         {
-            get { return un; }
+            get { return unidade; }
             set
             {
-                un = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("UN"));
+                unidade = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Unidade"));
             }
         }
 
@@ -89,7 +89,7 @@ namespace ViewWPF.ViewModels
             // Preenchendo os dados a serem salvos
             p.Id = Id;
             p.Descricao = Descricao;
-            p.UN = UN;
+            p.Unidade = Unidade;
             p.PrecoCusto = PrecoCusto;
             p.Cod = Cod;
             p.Estoque = Estoque;

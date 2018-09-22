@@ -147,7 +147,7 @@
       <Name>Controllers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modelos\Modelos.csproj">
-      <Project>{0732553c-c26d-4c66-8eb0-ce06cb92be15}</Project>
+      <Project>{bc0b1899-31bd-485a-87b5-d860dda446d9}</Project>
       <Name>Modelos</Name>
     </ProjectReference>
   </ItemGroup>

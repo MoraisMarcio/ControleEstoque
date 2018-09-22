@@ -1,4 +1,5 @@
 ﻿using Modelos;
+using Modelos.DAL;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -44,7 +45,7 @@ namespace Controllers
             if (dadosAntigos != null)
             {
                 dadosAntigos.Descricao = dadosNovos.Descricao;
-                dadosAntigos.UN = dadosNovos.UN;
+                dadosAntigos.Unidade = dadosNovos.Unidade;
                 dadosAntigos.PrecoCusto = dadosNovos.PrecoCusto;
                 dadosAntigos.Cod = dadosNovos.Cod;
                 dadosAntigos.Estoque = dadosNovos.Estoque;
