@@ -36,5 +36,11 @@ namespace ViewWPF
             TelaInventario minhaTelaInventario = new TelaInventario();
             minhaTelaInventario.Show();
         }
+
+        private void btnVendas_Click(object sender, RoutedEventArgs e)
+        {
+            TelaVendas minhaTelaVendas = new TelaVendas();
+            minhaTelaVendas.Show();
+        }
     }
 }

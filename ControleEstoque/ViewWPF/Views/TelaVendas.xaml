@@ -1,0 +1,56 @@
+﻿<Window x:Class="ViewWPF.Views.TelaVendas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViewWPF.Views"
+        mc:Ignorable="d"
+        Title="TelaVendas" Height="450" Width="800">
+    <Grid>
+
+        <TextBlock HorizontalAlignment="Left" Margin="20,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="28" FontSize="22"><Run Text="Nov"/><Run Text="a"/><Run Text=" "/><Run Text="Venda"/></TextBlock>
+
+        <DatePicker x:Name="DatePickerDataVenda" HorizontalAlignment="Left" Margin="239,55,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.273,0.819"/>
+
+        <!--Cliente-->
+        <TextBlock x:Name="labelCliente" Margin="21,63,0,0" TextWrapping="Wrap" Text="Cliente:" VerticalAlignment="Top" Width="48" HorizontalAlignment="Left" TextAlignment="Right" Height="16"/>
+        <ComboBox x:Name="comboCliente" HorizontalAlignment="Left" Margin="74,57,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <TextBlock x:Name="labelProduto" Margin="10,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" HorizontalAlignment="Left" TextAlignment="Right"><Run Text="Produto"/><Run Text=":"/></TextBlock>
+        <ComboBox x:Name="comboProduto" HorizontalAlignment="Left" Margin="113,143,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <TextBlock x:Name="labelQuantidade" Margin="10,177,0,0" TextWrapping="Wrap" Text="Quantidade:" VerticalAlignment="Top" Width="98" HorizontalAlignment="Left" TextAlignment="Right"/>
+        <TextBox x:Name="campoQuantidade" HorizontalAlignment="Left" Height="23" Margin="113,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+
+        <TextBlock x:Name="labelPrecoUnitario" Margin="10,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" HorizontalAlignment="Left" TextAlignment="Right"><Run Text="Preço"/><Run Text=" Unitário"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="campoPreco" HorizontalAlignment="Left" Height="23" Margin="113,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" />
+
+        <Button x:Name="btnRegistrarVenda" Content="Registrar" HorizontalAlignment="Left" Margin="188,226,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <TextBlock x:Name="labelTotal" Margin="188,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" HorizontalAlignment="Left" TextAlignment="Right" FontSize="18" Height="27" FontWeight="Bold"><Run Text="Total"/><Run Text=":"/><Run Text=" R$"/></TextBlock>
+        <TextBlock x:Name="labelValorVenda" Margin="275,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" HorizontalAlignment="Left" FontSize="20" Height="27" FontWeight="Bold"><Run Text="999"/><Run Text="9999"/><Run Text=",00"/><LineBreak/><Run/></TextBlock>
+
+        <Button x:Name="btnConcluirVenda" Content="Concluir Venda" HorizontalAlignment="Left" Margin="292,365,0,0" VerticalAlignment="Top" Width="97" />
+
+        <ListBox HorizontalAlignment="Left" Height="332" Margin="418,57,0,0" VerticalAlignment="Top" Width="349"/>
+        <TextBlock HorizontalAlignment="Left" Margin="525,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="28" FontSize="22" Text="Venda Atual"/>
+        <TextBlock x:Name="labelProduto_Copy" Margin="136,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" HorizontalAlignment="Left" TextAlignment="Right"><Run Text="Produto"/><Run Text=":"/></TextBlock>
+        <ComboBox x:Name="comboProduto_Copy" HorizontalAlignment="Left" Margin="239,338,0,0" VerticalAlignment="Top" Width="150"/>
+
+
+        <!--<TextBlock HorizontalAlignment="Left" Margin="78,45,0,0" TextWrapping="Wrap" Text="Nova Venda" VerticalAlignment="Top" Width="258" Height="28" FontSize="22"/>
+
+        <TextBlock x:Name="labelCliente" Margin="82,125,0,0" TextWrapping="Wrap" Text="Cliente ID**:" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"/>
+        <TextBox x:Name="campoCliente" HorizontalAlignment="Left" Height="23" Margin="163,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Text="{Binding ClienteId}"/>
+
+        <TextBlock x:Name="labelDataVenda" Margin="82,154,0,0" TextWrapping="Wrap" Text="Data:" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"/>
+        <DatePicker x:Name="DatePickerDataVenda" HorizontalAlignment="Left" Margin="163,146,0,0" VerticalAlignment="Top"/>
+
+        <TextBlock x:Name="labelProduto" Margin="82,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"><Run Text="Produto"/><Run Text=" ID**:"/></TextBlock>
+        <TextBox x:Name="campoProduto" HorizontalAlignment="Left" Height="23" Margin="163,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Text="{Binding ProdutoId}"/>
+        <TextBlock x:Name="labelQuantidade" Margin="82,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right" Text="Quantidade:"/>
+        <TextBox x:Name="campoQuantidade" HorizontalAlignment="Left" Height="23" Margin="163,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Text="{Binding ProdutoId}"/>-->
+
+
+    </Grid>
+</Window>
