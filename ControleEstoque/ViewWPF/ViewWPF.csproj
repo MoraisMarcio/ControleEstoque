@@ -65,6 +65,7 @@
     <Compile Include="ViewModels\TelaFornecedoresViewModel.cs" />
     <Compile Include="ViewModels\TelaInventarioViewModel.cs" />
     <Compile Include="ViewModels\TelaProdutosViewModel.cs" />
+    <Compile Include="ViewModels\TelaVendasViewModel.cs" />
     <Compile Include="Views\TelaClientes.xaml.cs">
       <DependentUpon>TelaClientes.xaml</DependentUpon>
     </Compile>
