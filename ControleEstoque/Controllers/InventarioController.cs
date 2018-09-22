@@ -15,6 +15,7 @@ namespace Controllers
         {
             ModelosContainer contexto = new ModelosContainer();
             contexto.Inventarios.Add(i);
+            contexto.SaveChanges();
         }
 
         public List<ItemInventario> ConsultarInventario()

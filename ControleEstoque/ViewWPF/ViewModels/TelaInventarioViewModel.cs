@@ -1,11 +1,6 @@
 ﻿using Controllers;
 using Modelos;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ViewWPF.ViewModels
 {
@@ -76,7 +71,8 @@ namespace ViewWPF.ViewModels
         public void SalvarInventario()
         {
             Inventario i = new Inventario();
-           
+
+            i.Id = Id;
             i.Nome = Nome;
 
             InventarioController inventarioController = new InventarioController();
