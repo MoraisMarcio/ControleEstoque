@@ -43,6 +43,11 @@ namespace ViewWPF
             TelaVendas minhaTelaVendas = new TelaVendas();
             minhaTelaVendas.Show();
         }
-       
+
+        private void btnCompras_Click(object sender, RoutedEventArgs e)
+        {
+            TelaCompras minhaTelaCompras = new TelaCompras();
+            minhaTelaCompras.Show();
+        }
     }
 }

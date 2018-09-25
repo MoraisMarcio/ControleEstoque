@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViewWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="450">
     <Grid>
 
         <Button x:Name="btnClientes" Content="Clientes" HorizontalAlignment="Left" Margin="50,27,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnClientes_Click" FontSize="20"/>
         <Button x:Name="btnProdutos" Content="Produtos" HorizontalAlignment="Left" Margin="241,27,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnProdutos_Click" FontSize="20"/>
         <Button x:Name="btnFornecedores" Content="Fornecedores" HorizontalAlignment="Left" Margin="50,168,0,0" VerticalAlignment="Top" Width="146" Height="101" Click="btnFornecedores_Click" FontSize="20"/>
         <Button x:Name="btnInventario" Content="Inventário" HorizontalAlignment="Left" Margin="241,168,0,0" VerticalAlignment="Top" Width="146" Height="101" FontSize="20" Click="btnInventario_Click"/>
-        <Button x:Name="btnVendas" Content="Vendas" HorizontalAlignment="Left" Margin="50,308,0,0" VerticalAlignment="Top" Width="146" Height="101" FontSize="20" Click="btnVendas_Click"/>
+        <Button x:Name="btnVendas" Content="Vendas" HorizontalAlignment="Left" Margin="241,308,0,0" VerticalAlignment="Top" Width="146" Height="101" FontSize="20" Click="btnVendas_Click"/>
+        <Button x:Name="btnCompras" Content="Compras" HorizontalAlignment="Left" Margin="50,308,0,0" VerticalAlignment="Top" Width="146" Height="101" FontSize="20" Click="btnCompras_Click" />
 
     </Grid>
 </Window>

@@ -1,11 +1,11 @@
-﻿<Window x:Class="ViewWPF.Views.TelaVendas"
+﻿<Window x:Class="ViewWPF.Views.TelaCompras"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViewWPF.Views"
         mc:Ignorable="d"
-        Title="TelaVendas" Height="450" Width="800">
+        Title="TelaCompras" Height="450" Width="800">
     <Grid>
 
         <TextBlock HorizontalAlignment="Left" Margin="20,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="28" FontSize="22"><Run Text="Nov"/><Run Text="a"/><Run Text=" "/><Run Text="Venda"/></TextBlock>
@@ -14,9 +14,9 @@
         <ComboBox x:Name="comboCliente" HorizontalAlignment="Left" Margin="74,57,0,0" VerticalAlignment="Top" Width="150" Text="{Binding ClienteId}">
             <ComboBoxItem Content="1"/>
         </ComboBox>
-        
+
         <DatePicker x:Name="DatePickerDataVenda" HorizontalAlignment="Left" Margin="239,55,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.273,0.819" Text="{Binding DataVenda}"/>
-       
+
         <TextBlock x:Name="labelProduto" Margin="10,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" HorizontalAlignment="Left" TextAlignment="Right"><Run Text="Produto"/><Run Text=":"/></TextBlock>
         <ComboBox x:Name="comboProduto" HorizontalAlignment="Left" Margin="113,143,0,0" VerticalAlignment="Top" Width="150" Text="{Binding ProdutoId}">
             <ComboBoxItem Content="1"/>
@@ -42,6 +42,7 @@
 
         <TextBlock HorizontalAlignment="Left" Margin="525,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="28" FontSize="22" Text="Lista de Itens"/>
         <ListBox HorizontalAlignment="Left" Height="332" Margin="418,57,0,0" VerticalAlignment="Top" Width="349"/>
-        
+
+
     </Grid>
 </Window>
