@@ -2,6 +2,7 @@
 using Modelos.DAL;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,10 @@ namespace Controllers
             contexto.SaveChanges();
         }
 
-        public List<ItemInventario> ConsultarInventario()
+        public List<Inventario> ConsultarInventario()
         {
             ModelosContainer contexto = new ModelosContainer();
-            return contexto.ItemInventarios.ToList();
+            return contexto.Inventarios.ToList();
         }
 
         //public Produto BuscarPorId(int id)

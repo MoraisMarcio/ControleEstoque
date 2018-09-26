@@ -1,5 +1,7 @@
 ﻿using Controllers;
 using Modelos;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace ViewWPF.ViewModels
@@ -30,42 +32,18 @@ namespace ViewWPF.ViewModels
             }
         }
 
-        private int estoque;
+        private ObservableCollection<Inventario> listaInventario;
 
-        public int Estoque
+        public ObservableCollection<Inventario> ListaInventario
         {
-            get { return estoque; }
+            get { return listaInventario; }
             set
             {
-                estoque = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Estoque"));
+                listaInventario = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ListaInventario"));
             }
         }
 
-        private int inventarioId;
-
-        public int InventarioId
-        {
-            get { return inventarioId; }
-            set
-            {
-                inventarioId = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("InventarioId"));
-            }
-        }
-
-        private int produtoId;
-
-        public int ProdutoId
-        {
-            get { return produtoId; }
-            set
-            {
-                produtoId = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("ProdutoId"));
-            }
-        }
-        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void SalvarInventario()
@@ -80,17 +58,27 @@ namespace ViewWPF.ViewModels
           
         }
 
+        public void ListarInventario()
+        {
+            InventarioController inventarioController = new InventarioController();
+            List<Inventario> lista = new List<Inventario>();
+            lista = inventarioController.ConsultarInventario();
 
-        //public List<ItemInventario> Consultar()
+            ObservableCollection<Inventario> myCollection = new ObservableCollection<Inventario>(lista);
+
+            listaInventario = myCollection;
+         
+            ListaInventario = listaInventario;    
+        }
+
+        //public ObservableCollection<Inventario> ListarInventario()
         //{
         //    InventarioController inventarioController = new InventarioController();
 
-        //    List<ItemInventario> lista = new List<ItemInventario>();
+        //    ObservableCollection<Inventario> lista = new ObservableCollection<Inventario>;
         //    lista = inventarioController.ConsultarInventario();
 
-        //    return lista;
-
-            
+        //    return lista;         
         //}
     }
 }

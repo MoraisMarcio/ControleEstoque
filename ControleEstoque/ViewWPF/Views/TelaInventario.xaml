@@ -14,6 +14,10 @@
         <TextBox x:Name="campoNovoInventario" HorizontalAlignment="Left" Height="23" Margin="146,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Text="{Binding Nome}"/>
         <Button x:Name="btnCriarInventario" Content="Criar Inventário" HorizontalAlignment="Left" Margin="198,162,0,0" VerticalAlignment="Top" Width="92" Click="btnCriarInventario_Click" />
 
+        <ListBox x:Name="listBoxListaInventario" HorizontalAlignment="Left" Height="232" Margin="10,227,0,0" VerticalAlignment="Top" Width="412" ItemsSource="{Binding ListaInventario}">
+            
+        </ListBox>
+
         <!--<TextBlock x:Name="labelInventarioId" Margin="32,226,0,0" TextWrapping="Wrap" Text="ID do inventário**:" VerticalAlignment="Top" Width="109" HorizontalAlignment="Left" TextAlignment="Right" Height="23"/>
         <TextBox x:Name="campoInventarioId" HorizontalAlignment="Left" Height="23" Margin="146,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Text="{Binding InventarioId}"/>
 
@@ -29,7 +33,7 @@
             <ListBoxItem Content=""/>
             <ListBoxItem Content=""/>
         </ListBox>-->
-        
+
         <!--<TextBox x:Name="campoInventarioList" HorizontalAlignment="Left" Height="306" Margin="415,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="325"/>-->
 
     </Grid>

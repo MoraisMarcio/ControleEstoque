@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using Modelos;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 using ViewWPF.ViewModels;
 
 namespace ViewWPF.Views
@@ -12,18 +15,23 @@ namespace ViewWPF.Views
         {
             InitializeComponent();
             DataContext = new TelaInventarioViewModel();
+            //List<Inventario> listaInventario = new List<Inventario>();
+            //listaInventario = 
+            (DataContext as TelaInventarioViewModel).ListarInventario();
+            //listBoxListaInventario.Items.Add(listaInventario);
+            //(DataContext as TelaInventarioViewModel).ListarInventario();
         }
 
         private void btnCriarInventario_Click(object sender, RoutedEventArgs e)
         {
+            
             (DataContext as TelaInventarioViewModel).SalvarInventario();
+            (DataContext as TelaInventarioViewModel).Nome = "";
         }
 
         //private void btnConsultar_Click(object sender, RoutedEventArgs e)
         //{
-        //    List<ItemInventario> listaInventario = new List<ItemInventario>();
-        //    listaInventario = (DataContext as TelaInventarioViewModel).Consultar();
-        //    ListInventario.Items.Add(listaInventario);                               
+                                          
 
         //}
 
