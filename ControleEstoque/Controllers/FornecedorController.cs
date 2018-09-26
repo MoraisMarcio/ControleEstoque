@@ -2,6 +2,7 @@
 using Modelos.DAL;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,11 @@ namespace Controllers
             contexto.SaveChanges();
         }
 
-        public List<Fornecedor> ListarTodosFornecedores()
+        public ObservableCollection<Fornecedor> ListarTodosFornecedores()
         {
             ModelosContainer contexto = new ModelosContainer();
-            return contexto.Fornecedores.ToList();
+            ObservableCollection<Fornecedor> ListaFornecedor = new ObservableCollection<Fornecedor>(contexto.Fornecedores.ToList());
+            return ListaFornecedor;
         }
 
         public Fornecedor BuscarPorId(int id)

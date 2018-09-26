@@ -12,6 +12,7 @@ namespace ViewWPF.Views
         {
             InitializeComponent();
             DataContext = new TelaFornecedoresViewModel();
+            (DataContext as TelaFornecedoresViewModel).ListarFornecedor();
         }
 
         private void btnCadastrarFornecedor_Click(object sender, RoutedEventArgs e)

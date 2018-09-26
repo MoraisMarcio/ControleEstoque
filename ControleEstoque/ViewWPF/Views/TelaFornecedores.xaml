@@ -5,14 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViewWPF.Views"
         mc:Ignorable="d"
-        Title="TelaFornecedores" Height="500" Width="450">
+        Title="TelaFornecedores" Height="500" Width="400
+        ">
     <Grid>
-        
-        <TextBlock HorizontalAlignment="Left" Margin="78,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="28" FontSize="22"><Run Text="Cadastro de Fornecedores"/></TextBlock>
 
-        <TextBlock x:Name="labelNome" Margin="82,125,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"/>
-        <TextBox x:Name="campoNome" HorizontalAlignment="Left" Height="23" Margin="163,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Nome}"/>
-        <Button x:Name="btnCadastrarFornecedor" Content="Cadastrar" HorizontalAlignment="Left" Margin="208,146,0,0" VerticalAlignment="Top" Width="75" Click="btnCadastrarFornecedor_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="372" Height="28" FontSize="22" TextAlignment="Center"><Run Text="Cadastro de Fornecedores"/></TextBlock>
+
+        <TextBlock x:Name="labelNome" Margin="12,78,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top" Width="76" HorizontalAlignment="Left" TextAlignment="Right"/>
+        <TextBox x:Name="campoNome" HorizontalAlignment="Left" Height="23" Margin="93,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Text="{Binding Nome}"/>
         
+        <Button x:Name="btnCadastrarFornecedor" Content="Cadastrar" HorizontalAlignment="Left" Margin="219,99,0,0" VerticalAlignment="Top" Width="75" Click="btnCadastrarFornecedor_Click"/>
+
+        <DataGrid x:Name="dataGridListaFornecedor" HorizontalAlignment="Left" Height="263" Margin="10,196,0,0" VerticalAlignment="Top" Width="372" ItemsSource="{Binding ListaFornecedor}"/>
+
     </Grid>
 </Window>

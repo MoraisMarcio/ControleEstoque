@@ -1,5 +1,6 @@
 ﻿using Controllers;
 using Modelos;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace ViewWPF.ViewModels
@@ -30,6 +31,18 @@ namespace ViewWPF.ViewModels
             }
         }
 
+        private ObservableCollection<Fornecedor> listaFornecedor;
+
+        public ObservableCollection<Fornecedor> ListaFornecedor
+        {
+            get { return listaFornecedor; }
+            set
+            {
+                listaFornecedor = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ListaFornecedor"));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void SalvarFornecedor()
@@ -41,6 +54,12 @@ namespace ViewWPF.ViewModels
 
             FornecedorController fornecedorController = new FornecedorController();
             fornecedorController.Inserir(f);
+        }
+
+        public void ListarFornecedor()
+        {
+            FornecedorController fornecedorController = new FornecedorController();
+            listaFornecedor = fornecedorController.ListarTodosFornecedores();
         }
     }
 }
