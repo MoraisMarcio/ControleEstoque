@@ -12,9 +12,9 @@ namespace Modelos
         public double Quantidade { get; set; }
         public decimal ValorUnitario { get; set; }
         public int ProdutoId { get; set; }
-        public int NotaSaidaId { get; set; }
+        //public int NotaSaidaId { get; set; }
 
         public virtual Produto Produto { get; set; }
-        public virtual NotaSaida NotaSaida { get; set; }
+        //public virtual NotaSaida NotaSaida { get; set; }
     }
 }

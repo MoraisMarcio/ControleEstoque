@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ViewWPF.ViewModels;
 
 namespace ViewWPF.Views
 {
@@ -22,6 +23,17 @@ namespace ViewWPF.Views
         public TelaCompras()
         {
             InitializeComponent();
+            DataContext = new TelaComprasViewModel();
+        }
+
+        private void btnRegistrarCompra_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as TelaComprasViewModel).RegistrarProduto();
+        }
+
+        private void btnConcluirCompra_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as TelaComprasViewModel).RegistrarCompra();
         }
     }
 }

@@ -85,9 +85,9 @@ namespace ViewWPF.ViewModels
             }
         }
 
-        private decimal valorTotal;
+        private string valorTotal;
 
-        public decimal ValorTotal
+        public string ValorTotal
         {
             get { return valorTotal; }
             set
@@ -109,6 +109,18 @@ namespace ViewWPF.ViewModels
             }
         }
 
+        //private int notaSaidaId;
+
+        //public int NotaSaidaId
+        //{
+        //    get { return notaSaidaId; }
+        //    set
+        //    {
+        //        notaSaidaId = value;
+        //        PropertyChanged(this, new PropertyChangedEventArgs("NotaSaidaId"));
+        //    }
+        //}
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void RegistrarProduto()
@@ -121,7 +133,7 @@ namespace ViewWPF.ViewModels
             i.ProdutoId = ProdutoId;
             i.Quantidade = Quantidade;
             i.ValorUnitario = ValorUnitario;
-            i.NotaSaidaId = n.Id;
+            //i.NotaSaidaId = NotaSaidaId;
             
             VendaController vendaController = new VendaController();
             vendaController.RegistrarProduto(i);
@@ -134,7 +146,7 @@ namespace ViewWPF.ViewModels
 
             n.DataVenda = DataVenda;
             n.ClienteId = ClienteId;
-            n.ValorTotal = ValorTotal;
+            n.ValorTotal = decimal.Parse(ValorTotal);
             n.TipoPagamento = TipoPagamento;
             VendaController vendaController = new VendaController();
             vendaController.RegistrarVenda(n);
