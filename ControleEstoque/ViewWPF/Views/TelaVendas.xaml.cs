@@ -35,7 +35,7 @@ namespace ViewWPF.Views
 
         private void btnConcluirVenda_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as TelaVendasViewModel).RegistrarVenda();
+            (DataContext as TelaVendasViewModel).RegistrarVenda();           
         }
     }
 }

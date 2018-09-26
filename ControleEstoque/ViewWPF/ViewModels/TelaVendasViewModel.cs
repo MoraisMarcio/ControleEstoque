@@ -2,6 +2,7 @@
 using Modelos;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -85,9 +86,9 @@ namespace ViewWPF.ViewModels
             }
         }
 
-        private string valorTotal;
+        private decimal valorTotal;
 
-        public string ValorTotal
+        public decimal ValorTotal
         {
             get { return valorTotal; }
             set
@@ -108,6 +109,19 @@ namespace ViewWPF.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs("TipoPagamento"));
             }
         }
+
+        private ObservableCollection<ItemNotaSaida> listaItemNotaSaida;
+
+        public ObservableCollection<ItemNotaSaida> ListaItemNotaSaida
+        {
+            get { return listaItemNotaSaida; }
+            set
+            {
+                listaItemNotaSaida = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ListaItemNotaSaida"));
+            }
+        }
+
 
         //private int notaSaidaId;
 
@@ -134,6 +148,7 @@ namespace ViewWPF.ViewModels
             i.Quantidade = Quantidade;
             i.ValorUnitario = ValorUnitario;
             //i.NotaSaidaId = NotaSaidaId;
+            listaItemNotaSaida.Add(i);
             
             VendaController vendaController = new VendaController();
             vendaController.RegistrarProduto(i);
@@ -142,14 +157,19 @@ namespace ViewWPF.ViewModels
         public void RegistrarVenda()
         {
             // SE HOUVEREM PRODUTOS REGISTRADOS, 
-            // ENTÃO REGISTRE A VENDA:   
+            // ENTÃO REGISTRE A VENDA: 
+            
 
             n.DataVenda = DataVenda;
             n.ClienteId = ClienteId;
-            n.ValorTotal = decimal.Parse(ValorTotal);
+            n.ValorTotal = ValorTotal;
             n.TipoPagamento = TipoPagamento;
+
             VendaController vendaController = new VendaController();
             vendaController.RegistrarVenda(n);
+
+            // FOREACH PARA PERCORRER CADA ITEM DA LISTA ITEMNOTASAIDA
+            // PASSANDO A CHAVE DA VENDA - NOTASAIDAID
         }
         
     }

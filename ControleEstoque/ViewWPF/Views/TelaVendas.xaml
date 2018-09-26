@@ -31,7 +31,7 @@
         <Button x:Name="btnRegistrarVenda" Content="Registrar" HorizontalAlignment="Left" Margin="188,226,0,0" VerticalAlignment="Top" Width="75" Click="btnRegistrarVenda_Click"/>
 
         <TextBlock x:Name="labelValorTotal" Margin="20,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" HorizontalAlignment="Left" TextAlignment="Right" FontSize="18" Height="23" FontWeight="Bold"><Run Text="Total da Venda: R$"/></TextBlock>
-        <TextBox x:Name="campoValorTotal" HorizontalAlignment="Left" Height="32" Margin="239,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Text="99999" FontSize="20" FontWeight="Bold"/>
+        <TextBlock x:Name="campoValorTotal" HorizontalAlignment="Left" Height="32" Margin="239,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Text="{Binding ValorTotal}" FontSize="20" FontWeight="Bold"/>
 
         <TextBlock x:Name="labelPagamento" Margin="113,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121" HorizontalAlignment="Left" TextAlignment="Right"><Run Text="Forma de Pagamento"/><Run Text=":"/></TextBlock>
         <ComboBox x:Name="comboPagamento" HorizontalAlignment="Left" Margin="239,338,0,0" VerticalAlignment="Top" Width="150" Text="{Binding TipoPagamento}">
@@ -41,7 +41,7 @@
         <Button x:Name="btnConcluirVenda" Content="Concluir Venda" HorizontalAlignment="Left" Margin="292,365,0,0" VerticalAlignment="Top" Width="97" Click="btnConcluirVenda_Click" />
 
         <TextBlock HorizontalAlignment="Left" Margin="525,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="28" FontSize="22" Text="Lista de Itens"/>
-        <ListBox HorizontalAlignment="Left" Height="332" Margin="418,57,0,0" VerticalAlignment="Top" Width="349"/>
+        <ListBox HorizontalAlignment="Left" Height="332" Margin="418,57,0,0" VerticalAlignment="Top" Width="349" ItemsSource="{Binding ListaItemNotaSaida}"/>
 
     </Grid>
 </Window>
