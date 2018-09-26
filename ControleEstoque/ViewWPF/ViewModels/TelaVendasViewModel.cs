@@ -154,6 +154,13 @@ namespace ViewWPF.ViewModels
             vendaController.RegistrarProduto(i);
         }
 
+        public void ListarProdutos()
+        {
+            VendaController vendaController = new VendaController();
+            listaItemNotaSaida = vendaController.ListarVenda();
+
+        }
+
         public void RegistrarVenda()
         {
             // SE HOUVEREM PRODUTOS REGISTRADOS, 

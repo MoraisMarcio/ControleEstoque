@@ -2,6 +2,7 @@
 using Modelos.DAL;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,13 @@ namespace Controllers
             ModelosContainer contexto = new ModelosContainer();
             contexto.ItemNotaSaidas.Add(i);           
             contexto.SaveChanges();
+        }
+
+        public ObservableCollection<ItemNotaSaida> ListarVenda()
+        {
+            ModelosContainer contexto = new ModelosContainer();
+            ObservableCollection<ItemNotaSaida> listaItemNotaSaida = new ObservableCollection<ItemNotaSaida>(contexto.ItemNotaSaidas.ToList());
+            return listaItemNotaSaida;
         }
 
         public void RegistrarVenda(NotaSaida n)
