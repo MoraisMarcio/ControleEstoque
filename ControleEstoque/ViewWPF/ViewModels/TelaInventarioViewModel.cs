@@ -61,14 +61,8 @@ namespace ViewWPF.ViewModels
         public void ListarInventario()
         {
             InventarioController inventarioController = new InventarioController();
-            List<Inventario> lista = new List<Inventario>();
-            lista = inventarioController.ConsultarInventario();
-
-            ObservableCollection<Inventario> myCollection = new ObservableCollection<Inventario>(lista);
-
-            listaInventario = myCollection;
-         
-            ListaInventario = listaInventario;    
+            listaInventario = inventarioController.ConsultarInventario();
+             
         }
 
         //public ObservableCollection<Inventario> ListarInventario()

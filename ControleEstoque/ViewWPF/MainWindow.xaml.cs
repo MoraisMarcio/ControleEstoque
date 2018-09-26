@@ -35,7 +35,7 @@ namespace ViewWPF
         private void btnInventario_Click(object sender, RoutedEventArgs e)
         {
             TelaInventario minhaTelaInventario = new TelaInventario();
-            minhaTelaInventario.Show();
+            minhaTelaInventario.Show();           
         }
 
         private void btnVendas_Click(object sender, RoutedEventArgs e)

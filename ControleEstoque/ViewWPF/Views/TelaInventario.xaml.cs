@@ -14,27 +14,17 @@ namespace ViewWPF.Views
         public TelaInventario()
         {
             InitializeComponent();
-            DataContext = new TelaInventarioViewModel();
-            //List<Inventario> listaInventario = new List<Inventario>();
-            //listaInventario = 
+            DataContext = new TelaInventarioViewModel();          
             (DataContext as TelaInventarioViewModel).ListarInventario();
-            //listBoxListaInventario.Items.Add(listaInventario);
-            //(DataContext as TelaInventarioViewModel).ListarInventario();
+        
         }
 
         private void btnCriarInventario_Click(object sender, RoutedEventArgs e)
-        {
-            
-            (DataContext as TelaInventarioViewModel).SalvarInventario();
-            (DataContext as TelaInventarioViewModel).Nome = "";
+        {           
+            (DataContext as TelaInventarioViewModel).SalvarInventario();            
+            //(DataContext as TelaInventarioViewModel).ListarInventario();
+            (DataContext as TelaInventarioViewModel).Nome = "";          
         }
-
-        //private void btnConsultar_Click(object sender, RoutedEventArgs e)
-        //{
-                                          
-
-        //}
-
 
     }
 }

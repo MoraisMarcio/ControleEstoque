@@ -19,10 +19,11 @@ namespace Controllers
             contexto.SaveChanges();
         }
 
-        public List<Inventario> ConsultarInventario()
+        public ObservableCollection<Inventario> ConsultarInventario()
         {
             ModelosContainer contexto = new ModelosContainer();
-            return contexto.Inventarios.ToList();
+            ObservableCollection<Inventario> listaInventario = new ObservableCollection<Inventario>(contexto.Inventarios.ToList());
+            return listaInventario;
         }
 
         //public Produto BuscarPorId(int id)

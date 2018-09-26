@@ -12,29 +12,14 @@
 
         <TextBlock x:Name="labelNovoInventario" Margin="32,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" HorizontalAlignment="Left" TextAlignment="Right" Height="23"><Run Text="Nome do inventário"/><Run Text=":"/></TextBlock>
         <TextBox x:Name="campoNovoInventario" HorizontalAlignment="Left" Height="23" Margin="146,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Text="{Binding Nome}"/>
+        
         <Button x:Name="btnCriarInventario" Content="Criar Inventário" HorizontalAlignment="Left" Margin="198,162,0,0" VerticalAlignment="Top" Width="92" Click="btnCriarInventario_Click" />
 
-        <ListBox x:Name="listBoxListaInventario" HorizontalAlignment="Left" Height="232" Margin="10,227,0,0" VerticalAlignment="Top" Width="412" ItemsSource="{Binding ListaInventario}">
-            
-        </ListBox>
+        <DataGrid x:Name="dataGridListaInventario" HorizontalAlignment="Left" Height="249" Margin="10,210,0,0" VerticalAlignment="Top" Width="410" ItemsSource="{Binding ListaInventario}"/>
 
-        <!--<TextBlock x:Name="labelInventarioId" Margin="32,226,0,0" TextWrapping="Wrap" Text="ID do inventário**:" VerticalAlignment="Top" Width="109" HorizontalAlignment="Left" TextAlignment="Right" Height="23"/>
-        <TextBox x:Name="campoInventarioId" HorizontalAlignment="Left" Height="23" Margin="146,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Text="{Binding InventarioId}"/>
+        <!--<ListBox x:Name="listBoxListaInventario" HorizontalAlignment="Left" Height="232" Margin="10,227,0,0" VerticalAlignment="Top" Width="412" ItemsSource="{Binding ListaInventario}"></ListBox>-->
 
-        <TextBlock x:Name="labelProdutoId" Margin="32,254,0,0" TextWrapping="Wrap" Text="ID do produto**:" VerticalAlignment="Top" Width="109" HorizontalAlignment="Left" TextAlignment="Right" Height="23"/>
-        <TextBox x:Name="campoProdutoId" HorizontalAlignment="Left" Height="23" Margin="146,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Text="{Binding ProdutoId}"/>
-
-        <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="215,293,0,0" VerticalAlignment="Top" Width="75" Click="btnConsultar_Click"/>
-
-        <ListBox x:Name="ListInventario" Margin="405,106,33,31">
-            <ListBoxItem Content=""/>
-            <ListBoxItem Content=""/>
-            <ListBoxItem Content=""/>
-            <ListBoxItem Content=""/>
-            <ListBoxItem Content=""/>
-        </ListBox>-->
-
-        <!--<TextBox x:Name="campoInventarioList" HorizontalAlignment="Left" Height="306" Margin="415,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="325"/>-->
-
+        
+        
     </Grid>
 </Window>

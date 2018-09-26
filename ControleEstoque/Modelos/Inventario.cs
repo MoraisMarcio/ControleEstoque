@@ -11,6 +11,6 @@ namespace Modelos
         public int Id { get; set; }
         public string Nome { get; set; }
 
-        public virtual ICollection<ItemInventario> ItemInventario { get; set; }
+        //public virtual ICollection<ItemInventario> ItemInventario { get; set; }
     }
 }
