@@ -148,7 +148,7 @@ namespace ViewWPF.ViewModels
             i.Quantidade = Quantidade;
             i.ValorUnitario = ValorUnitario;
             //i.NotaSaidaId = NotaSaidaId;
-            listaItemNotaSaida.Add(i);
+            //listaItemNotaSaida.Add(i);
             
             VendaController vendaController = new VendaController();
             vendaController.RegistrarProduto(i);
