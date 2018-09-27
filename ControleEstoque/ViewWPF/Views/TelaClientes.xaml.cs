@@ -12,11 +12,15 @@ namespace ViewWPF.Views
         {
             InitializeComponent();
             DataContext = new TelaClientesViewModel();
+            (DataContext as TelaClientesViewModel).ListarClientes();
         }
 
         private void btnCadastrarCliente_Click(object sender, RoutedEventArgs e)
         {
-            (DataContext as TelaClientesViewModel).SalvarCliente();
+            (DataContext as TelaClientesViewModel).SalvarCliente();           
+            campoNome.Text = "";
+            campoTelefone.Text = "";
+            campoEndereco.Text = "";
         }
     }
 }

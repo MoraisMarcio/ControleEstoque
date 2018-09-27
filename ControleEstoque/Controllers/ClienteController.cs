@@ -1,6 +1,7 @@
 ﻿using Modelos;
 using Modelos.DAL;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Controllers
@@ -14,10 +15,11 @@ namespace Controllers
             contexto.SaveChanges();
         }
 
-        public List<Cliente> ListarTodosClientes()
+        public ObservableCollection<Cliente> ListarTodosClientes()
         {
             ModelosContainer contexto = new ModelosContainer();
-            return contexto.Clientes.ToList();
+            ObservableCollection<Cliente> listaCliente = new ObservableCollection<Cliente>(contexto.Clientes.ToList());
+            return listaCliente;
         }
 
         public Cliente BuscarPorId(int id)

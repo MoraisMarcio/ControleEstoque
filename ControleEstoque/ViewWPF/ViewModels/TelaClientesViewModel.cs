@@ -1,5 +1,6 @@
 ﻿using Controllers;
 using Modelos;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace ViewWPF.ViewModels
@@ -54,6 +55,19 @@ namespace ViewWPF.ViewModels
             }
         }
 
+        private ObservableCollection<Cliente> listaCliente;
+
+        public ObservableCollection<Cliente> ListaCliente
+        {
+            get { return listaCliente; }
+            set
+            {
+                listaCliente = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ListaCliente"));
+            }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void SalvarCliente()
@@ -69,6 +83,12 @@ namespace ViewWPF.ViewModels
 
             ClienteController clienteController = new ClienteController();
             clienteController.Inserir(c);
+        }
+
+        public void ListarClientes()
+        {
+            ClienteController clienteController = new ClienteController();
+            listaCliente = clienteController.ListarTodosClientes();
         }
     }
 }

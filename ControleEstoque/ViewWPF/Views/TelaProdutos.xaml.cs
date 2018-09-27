@@ -29,6 +29,11 @@ namespace ViewWPF.Views
         private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
         {
             (DataContext as TelaProdutosViewModel).SalvarProduto();
+            campoCodigo.Text = "";
+            campoDescricao.Text = "";
+            campoEstoque.Text = "";
+            campoPrecoCusto.Text = "";
+            campoUN.Text = "";
         }
     }
 }

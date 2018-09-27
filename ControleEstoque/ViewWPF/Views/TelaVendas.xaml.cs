@@ -19,10 +19,12 @@ namespace ViewWPF.Views
         {            
             (DataContext as TelaVendasViewModel).RegistrarProduto();
             (DataContext as TelaVendasViewModel).ListarProdutos();
-            (DataContext as TelaVendasViewModel).ClienteId = 0;
-            (DataContext as TelaVendasViewModel).ProdutoId = 0;
-            (DataContext as TelaVendasViewModel).Quantidade = 0;
-            (DataContext as TelaVendasViewModel).ValorUnitario = 0;
+            campoValorUnitario.Text = "";
+            campoQuantidade.Text = "";
+            campoValorTotal.Text = "";
+            comboCliente.Text = "";
+            comboPagamento.Text = "";
+            comboProduto.Text = "";
         }
 
         private void btnConcluirVenda_Click(object sender, RoutedEventArgs e)
