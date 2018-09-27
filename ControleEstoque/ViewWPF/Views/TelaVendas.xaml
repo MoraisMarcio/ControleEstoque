@@ -41,7 +41,15 @@
         <Button x:Name="btnConcluirVenda" Content="Concluir Venda" HorizontalAlignment="Left" Margin="292,365,0,0" VerticalAlignment="Top" Width="97" Click="btnConcluirVenda_Click" />
 
         <TextBlock HorizontalAlignment="Left" Margin="525,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Height="28" FontSize="22" Text="Lista de Itens"/>
-        <DataGrid x:Name="dataGridListaProdutos" HorizontalAlignment="Left" Height="330" Margin="454,55,0,0" VerticalAlignment="Top" Width="315" ItemsSource="{Binding ListaItemNotaSaida}"/>
+        <DataGrid x:Name="dataGridListaProdutos" HorizontalAlignment="Left" Height="330" Margin="454,55,0,0" VerticalAlignment="Top" Width="315" ItemsSource="{Binding ListaItemNotaSaida}"
+                 AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Produto" Binding="{Binding Produto.Descricao}" />
+                <DataGridTextColumn Header="Produto" Binding="{Binding Quantidade}" />
+                <DataGridTextColumn Header="Produto" Binding="{Binding ValorUnitario}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
         <!--<ListBox HorizontalAlignment="Left" Height="332" Margin="418,57,0,0" VerticalAlignment="Top" Width="349" ItemsSource="{Binding ListaItemNotaSaida}"/>-->
 

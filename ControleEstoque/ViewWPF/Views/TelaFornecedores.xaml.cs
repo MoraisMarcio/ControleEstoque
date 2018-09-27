@@ -18,6 +18,7 @@ namespace ViewWPF.Views
         private void btnCadastrarFornecedor_Click(object sender, RoutedEventArgs e)
         {
             (DataContext as TelaFornecedoresViewModel).SalvarFornecedor();
+            (DataContext as TelaFornecedoresViewModel).ListarFornecedor();
             campoNome.Text = "";
         }
     }

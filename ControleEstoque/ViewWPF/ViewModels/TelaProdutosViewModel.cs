@@ -1,6 +1,7 @@
 ﻿using Modelos;
 using Controllers;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace ViewWPF.ViewModels
 {
@@ -78,6 +79,18 @@ namespace ViewWPF.ViewModels
             }
         }
 
+        private ObservableCollection<Produto> listaProduto;
+
+        public ObservableCollection<Produto> ListaProduto
+        {
+            get { return listaProduto; }
+            set
+            {
+                listaProduto = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("ListaProduto"));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void SalvarProduto()
@@ -100,6 +113,12 @@ namespace ViewWPF.ViewModels
 
             ProdutoController prodController = new ProdutoController();
             prodController.Inserir(p, i);
+        }
+
+        public void ListarProdutos()
+        {
+            ProdutoController prodController = new ProdutoController();
+            listaProduto = prodController.ListarTodosProdutos();
         }
     }
 }

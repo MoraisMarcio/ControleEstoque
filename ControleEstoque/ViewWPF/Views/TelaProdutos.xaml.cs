@@ -24,6 +24,7 @@ namespace ViewWPF.Views
         {
             InitializeComponent();
             DataContext = new TelaProdutosViewModel();
+            (DataContext as TelaProdutosViewModel).ListarProdutos();
         }
 
         private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)

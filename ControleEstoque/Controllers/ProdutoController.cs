@@ -1,6 +1,7 @@
 ﻿using Modelos;
 using Modelos.DAL;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Controllers
@@ -15,10 +16,11 @@ namespace Controllers
             contexto.SaveChanges();
         }
 
-        public List<Produto> ListarTodosProdutos()
+        public ObservableCollection<Produto> ListarTodosProdutos()
         {
             ModelosContainer contexto = new ModelosContainer();
-            return contexto.Produtos.ToList();
+            ObservableCollection<Produto> listaProduto = new ObservableCollection<Produto>(contexto.Produtos.ToList());
+            return listaProduto;
         }
 
         public Produto BuscarPorId(int id)
